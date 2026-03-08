@@ -205,12 +205,18 @@ body {
 
 /* Section spacing — responsive */
 .section-padding {
-  padding: 80px 20px;
+  padding: 60px 24px;
+}
+
+@media (min-width: 380px) {
+  .section-padding {
+    padding: 72px 28px;
+  }
 }
 
 @media (min-width: 640px) {
   .section-padding {
-    padding: 100px 32px;
+    padding: 100px 40px;
   }
 }
 
@@ -223,6 +229,59 @@ body {
 @media (min-width: 1024px) {
   .section-padding {
     padding: 140px 80px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .section-padding {
+    padding: 160px 120px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .section-padding {
+    padding: 180px 160px;
+  }
+}
+
+/* ===== Extra Small Devices (≤380px) ===== */
+@media (max-width: 380px) {
+  .glass-card {
+    border-radius: 12px;
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-2px) scale(1.005);
+  }
+}
+
+/* ===== Large Desktop / TV (1536px+) ===== */
+@media (min-width: 1536px) {
+  .glass-card {
+    border-radius: 20px;
+    box-shadow: 0 6px 32px var(--th-shadow);
+  }
+}
+
+/* ===== Ultra Wide / TV (1920px+) ===== */
+@media (min-width: 1920px) {
+  .glass-card {
+    border-radius: 24px;
+  }
+}
+
+/* ===== Touch Device Optimizations ===== */
+@media (hover: none) and (pointer: coarse) {
+  .glass-card-hover:hover {
+    transform: none;
+    background: var(--th-card);
+    border-color: var(--th-border);
+    box-shadow: 0 4px 24px var(--th-shadow);
+  }
+
+  .glass-card-hover:active {
+    transform: scale(0.98);
+    background: var(--th-card-hover);
   }
 }
 

@@ -27,13 +27,13 @@ export default function Achievements() {
                     <p className="text-base font-semibold tracking-[0.3em] text-secondary uppercase">
                         Our Milestones
                     </p>
-                    <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl" style={{ color: "var(--th-text)" }}>
+                    <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl" style={{ color: "var(--th-text)" }}>
                         Achievements
                     </h2>
                     <div className="mx-auto mt-5 h-[2px] w-16 bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
                 </motion.div>
 
-                <div className="grid gap-6 md:grid-cols-3">
+                <div className="grid gap-4 sm:gap-6 md:grid-cols-3 2xl:gap-8">
                     {SITE_DATA.achievements.map((category, i) => {
                         const style = CATEGORY_STYLES[category.category] || { Icon: Sparkles, accent: "text-secondary", color: "#8273D8", bg: "from-dark/5 to-transparent" };
                         const { Icon } = style;

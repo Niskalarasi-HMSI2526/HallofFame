@@ -6,11 +6,11 @@ import Image from "next/image";
 
 const NAV_LINKS = [
     { href: "#hero", label: "Home" },
-    { href: "#filosofi", label: "Filosofi" },
-    { href: "#leaders", label: "Leaders" },
+    { href: "#video", label: "Video" },
+    { href: "#filosofi", label: "Identity" },
     { href: "#performance", label: "Performance" },
-    { href: "#achievements", label: "Achievements" },
-    { href: "#departments", label: "Departments" },
+    { href: "#team", label: "Team" },
+    { href: "#gallery", label: "Gallery" },
 ];
 
 export default function Navbar() {

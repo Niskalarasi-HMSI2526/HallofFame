@@ -9,8 +9,8 @@ export default function Performance() {
 
     const breakdownItems = [
         {
-            label: "Progresif",
-            value: ipms.breakdown.progresif,
+            label: "Progressive",
+            value: ipms.breakdown.progressive,
             color: "#562FCC",
             bg: "from-[#562FCC]/20 to-[#562FCC]/5",
             border: "border-[#562FCC]/25",
@@ -23,8 +23,8 @@ export default function Performance() {
             border: "border-[#3D4AEC]/25",
         },
         {
-            label: "Kekeluargaan",
-            value: ipms.breakdown.kekeluargaan,
+            label: "Solidarity",
+            value: ipms.breakdown.solidarity,
             color: "#F686EB",
             bg: "from-[#F686EB]/20 to-[#F686EB]/5",
             border: "border-[#F686EB]/25",
@@ -47,7 +47,7 @@ export default function Performance() {
                         Performance & Identity
                     </p>
                     <h2
-                        className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
+                        className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl"
                         style={{ color: "var(--th-text)" }}
                     >
                         IPMS Score
@@ -56,7 +56,7 @@ export default function Performance() {
                 </motion.div>
 
                 {/* Bento Grid */}
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4 2xl:gap-6">
                     {/* Overall Score — large card with big gauge */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ export default function Performance() {
                                     className="text-sm font-semibold tracking-[0.2em] uppercase"
                                     style={{ color: "var(--th-text-muted)" }}
                                 >
-                                    Misi
+                                    Mission
                                 </p>
                                 <p
                                     className="mt-1 text-base font-bold tracking-wider"
@@ -145,7 +145,7 @@ export default function Performance() {
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
                         <div className="relative z-10">
                             <p className="text-sm font-bold tracking-[0.3em] text-primary uppercase">
-                                Visi Kabinet
+                                Cabinet Vision
                             </p>
                             <p
                                 className="mt-3 text-base leading-relaxed italic sm:text-lg"

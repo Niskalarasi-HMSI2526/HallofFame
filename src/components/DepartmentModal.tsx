@@ -2,7 +2,9 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { Trophy, Target, Briefcase, Award } from "lucide-react";
 import { ROLE_ORDER, ROLE_COLORS, type Department, type Member } from "@/constants/data";
+import GaugeChart from "@/components/GaugeChart";
 
 function getRoleBadge(role: string) {
     const colors = ROLE_COLORS[role] || "bg-slate-100 text-slate-600 border-slate-200";
@@ -75,43 +77,133 @@ export default function DepartmentModal({
                             </div>
                         </div>
 
-                        {/* Members */}
-                        <div className="p-5 space-y-8 sm:p-6">
-                            {Array.from(groupMembersByRole(department.members).entries()).map(
-                                ([role, members]) => (
-                                    <div key={role}>
-                                        <div className="mb-3 flex items-center gap-3">
-                                            <span className={getRoleBadge(role)}>{role}</span>
-                                            <div className="h-[1px] flex-1" style={{ background: "var(--th-border)" }} />
-                                        </div>
-                                        <div className="grid gap-3 sm:grid-cols-2">
-                                            {members.map((member) => (
-                                                <div
-                                                    key={member.name}
-                                                    className="flex items-center gap-3 rounded-xl p-3 transition-colors"
-                                                    style={{ background: "var(--th-bg-alt)", border: "1px solid var(--th-border)" }}
-                                                >
-                                                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-secondary/15 bg-secondary/10">
-                                                        {member.photo ? (
-                                                            <Image src={member.photo} alt={member.name} width={44} height={44} className="member-photo" />
-                                                        ) : (
-                                                            <span className="text-sm font-bold text-secondary">{member.name.charAt(0)}</span>
-                                                        )}
-                                                    </div>
-                                                    <div className="min-w-0">
-                                                        <p className="truncate text-base font-semibold" style={{ color: "var(--th-text)" }}>
-                                                            {member.name}
-                                                        </p>
-                                                        {member.nrp && (
-                                                            <p className="text-sm" style={{ color: "var(--th-text-muted)" }}>{member.nrp}</p>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )
+                        <div className="p-5 space-y-6 sm:p-6">
+                            {/* ── IPMS Score ── */}
+                            {department.performance !== undefined && department.performance > 0 && (
+                                <div className="flex justify-center">
+                                    <GaugeChart
+                                        value={department.performance}
+                                        size={120}
+                                        strokeWidth={8}
+                                        color="#8273D8"
+                                        label="IPMS Score"
+                                        showValue
+                                        animated
+                                    />
+                                </div>
                             )}
+
+                            {/* ── Role & Function ── */}
+                            {department.roleFunction && (
+                                <div className="rounded-xl p-4" style={{ background: "var(--th-bg-alt)", border: "1px solid var(--th-border)" }}>
+                                    <div className="mb-2 flex items-center gap-2">
+                                        <Briefcase size={16} className="text-secondary" />
+                                        <h4 className="text-sm font-bold tracking-wider uppercase" style={{ color: "var(--th-text-muted)" }}>
+                                            Role & Function
+                                        </h4>
+                                    </div>
+                                    <p className="text-sm leading-relaxed" style={{ color: "var(--th-text-secondary)" }}>
+                                        {department.roleFunction}
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* ── Agendas & Initiatives ── */}
+                            {department.agendas && department.agendas.length > 0 && (
+                                <div className="rounded-xl p-4" style={{ background: "var(--th-bg-alt)", border: "1px solid var(--th-border)" }}>
+                                    <div className="mb-3 flex items-center gap-2">
+                                        <Target size={16} className="text-secondary" />
+                                        <h4 className="text-sm font-bold tracking-wider uppercase" style={{ color: "var(--th-text-muted)" }}>
+                                            Agendas & Initiatives
+                                        </h4>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                        {department.agendas.map((agenda) => (
+                                            <span
+                                                key={agenda}
+                                                className="rounded-full px-3 py-1 text-xs font-medium"
+                                                style={{ background: "var(--th-card)", color: "var(--th-text-secondary)", border: "1px solid var(--th-border)" }}
+                                            >
+                                                {agenda}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* ── Goals & Skills ── */}
+                            {department.goals && (
+                                <div className="rounded-xl p-4" style={{ background: "var(--th-bg-alt)", border: "1px solid var(--th-border)" }}>
+                                    <div className="mb-2 flex items-center gap-2">
+                                        <Trophy size={16} className="text-gold" />
+                                        <h4 className="text-sm font-bold tracking-wider uppercase" style={{ color: "var(--th-text-muted)" }}>
+                                            Goals & Skills Acquired
+                                        </h4>
+                                    </div>
+                                    <p className="text-sm leading-relaxed" style={{ color: "var(--th-text-secondary)" }}>
+                                        {department.goals}
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* ── Achievement Highlight ── */}
+                            {department.achievementHighlight && (
+                                <div className="rounded-xl p-4" style={{ background: "linear-gradient(135deg, rgba(213,172,60,0.08), rgba(130,115,216,0.08))", border: "1px solid var(--th-border)" }}>
+                                    <div className="mb-2 flex items-center gap-2">
+                                        <Award size={16} className="text-amber-500" />
+                                        <h4 className="text-sm font-bold tracking-wider uppercase" style={{ color: "var(--th-text-muted)" }}>
+                                            Key Achievements
+                                        </h4>
+                                    </div>
+                                    <p className="text-sm leading-relaxed" style={{ color: "var(--th-text-secondary)" }}>
+                                        {department.achievementHighlight}
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* ── Members ── */}
+                            <div>
+                                <h4 className="mb-4 text-sm font-bold tracking-wider uppercase" style={{ color: "var(--th-text-muted)" }}>
+                                    Full Roster
+                                </h4>
+                                <div className="space-y-6">
+                                    {Array.from(groupMembersByRole(department.members).entries()).map(
+                                        ([role, members]) => (
+                                            <div key={role}>
+                                                <div className="mb-3 flex items-center gap-3">
+                                                    <span className={getRoleBadge(role)}>{role}</span>
+                                                    <div className="h-[1px] flex-1" style={{ background: "var(--th-border)" }} />
+                                                </div>
+                                                <div className="grid gap-3 sm:grid-cols-2">
+                                                    {members.map((member) => (
+                                                        <div
+                                                            key={member.name}
+                                                            className="flex items-center gap-3 rounded-xl p-3 transition-colors"
+                                                            style={{ background: "var(--th-bg-alt)", border: "1px solid var(--th-border)" }}
+                                                        >
+                                                            <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-secondary/15 bg-secondary/10">
+                                                                {member.photo ? (
+                                                                    <Image src={member.photo} alt={member.name} width={44} height={44} className="member-photo" />
+                                                                ) : (
+                                                                    <span className="text-sm font-bold text-secondary">{member.name.charAt(0)}</span>
+                                                                )}
+                                                            </div>
+                                                            <div className="min-w-0">
+                                                                <p className="truncate text-base font-semibold" style={{ color: "var(--th-text)" }}>
+                                                                    {member.name}
+                                                                </p>
+                                                                {member.nrp && (
+                                                                    <p className="text-sm" style={{ color: "var(--th-text-muted)" }}>{member.nrp}</p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
                 </motion.div>

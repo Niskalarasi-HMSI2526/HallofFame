@@ -1,213 +1,195 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { SITE_DATA } from "@/constants/data";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
-import { Infinity as InfinityIcon, Cog, Gauge, Star } from "lucide-react";
+import { SITE_DATA } from "@/constants/data";
 
 const FILOSOFI_COLORS = [
-    { bg: "from-secondary/12 to-secondary/5", accent: "text-secondary", border: "border-secondary/20" },
-    { bg: "from-primary/12 to-primary/5", accent: "text-primary", border: "border-primary/20" },
-    { bg: "from-gold-light/18 to-gold-light/5", accent: "text-amber-600", border: "border-gold-light/30" },
-    { bg: "from-accent-pink/12 to-accent-pink/5", accent: "text-pink-500", border: "border-accent-pink/20" },
+    { gradient: "from-secondary/20 to-secondary/5", text: "text-secondary", border: "border-secondary/20" },
+    { gradient: "from-primary/20 to-primary/5", text: "text-primary", border: "border-primary/20" },
+    { gradient: "from-gold/20 to-gold/5", text: "text-amber-600", border: "border-gold/20" },
+    { gradient: "from-accent-pink/20 to-accent-pink/5", text: "text-pink-500", border: "border-accent-pink/20" },
 ];
-
-const LOGO_ELEMENT_COLORS = [
-    { bg: "from-primary/10", accent: "text-primary", color: "#3D4AEC" },
-    { bg: "from-gold-light/15", accent: "text-amber-600", color: "#D5AC3C" },
-    { bg: "from-secondary/10", accent: "text-secondary", color: "#562FCC" },
-    { bg: "from-accent-pink/10", accent: "text-pink-500", color: "#F686EB" },
-];
-
-const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string; color?: string }>> = {
-    infinity: InfinityIcon,
-    cog: Cog,
-    gauge: Gauge,
-    star: Star,
-};
 
 export default function Filosofi() {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <section id="filosofi" className="section-padding relative">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(130,115,216,0.08)_0%,transparent_60%)]" />
-
-            <div className="relative z-10 mx-auto max-w-6xl">
-                {/* Section header */}
+        <section id="filosofi" className="section-padding">
+            <div className="mx-auto max-w-6xl">
+                {/* Header — always visible */}
                 <motion.div
-                    className="mb-14 text-center sm:mb-20"
+                    className="mb-6 text-center"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-80px" }}
                 >
-                    <p className="text-base font-semibold tracking-[0.3em] text-secondary uppercase">
-                        Makna di Balik Nama
+                    <p className="text-sm font-semibold tracking-[0.3em] text-secondary uppercase sm:text-base">
+                        Identity
                     </p>
-                    <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl" style={{ color: "var(--th-text)" }}>
-                        Filosofi Niskalarasi
+                    <h2
+                        className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl"
+                        style={{ color: "var(--th-text)" }}
+                    >
+                        Who We Are
                     </h2>
-                    <div className="mx-auto mt-5 h-[2px] w-16 bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
-                </motion.div>
-
-                {/* Filosofi Name Cards */}
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                    {SITE_DATA.filosofi.map((item, i) => {
-                        const color = FILOSOFI_COLORS[i];
-                        return (
-                            <motion.div
-                                key={item.syllable}
-                                initial={{ opacity: 0, y: 24 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: i * 0.1 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                className={`glass-card glass-card-hover relative overflow-hidden border ${color.border} p-6 sm:p-7`}
-                            >
-                                <div className={`absolute inset-0 bg-gradient-to-br ${color.bg}`} />
-                                <div className="relative z-10">
-                                    <p className={`text-3xl font-extrabold sm:text-4xl ${color.accent}`}>
-                                        {item.syllable}
-                                    </p>
-                                    <p className="mt-2 text-xl font-bold sm:text-2xl" style={{ color: "var(--th-text)" }}>
-                                        {item.word}
-                                    </p>
-                                    <p className="mt-3 text-base leading-relaxed" style={{ color: "var(--th-text-secondary)" }}>
-                                        {item.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
-
-                {/* Filosofi Logo */}
-                <motion.div
-                    className="mt-24 text-center sm:mt-28"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                >
-                    <p className="text-base font-semibold tracking-[0.3em] text-secondary uppercase">
-                        Elemen Visual
+                    <p
+                        className="mx-auto mt-3 max-w-md text-sm leading-relaxed sm:text-base"
+                        style={{ color: "var(--th-text-muted)" }}
+                    >
+                        HMSI ITS &middot; Cabinet Niskalarasi 2024/2025
                     </p>
-                    <h3 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl" style={{ color: "var(--th-text)" }}>
-                        Filosofi Logo
-                    </h3>
-                    <div className="mx-auto mt-5 h-[2px] w-16 bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
+                    <div className="mx-auto mt-4 h-[2px] w-16 bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
                 </motion.div>
 
+                {/* Expand Button */}
                 <motion.div
-                    className="mx-auto mt-10 flex justify-center sm:mt-14"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.7 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    className="flex justify-center"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                    viewport={{ once: true }}
                 >
-                    <div className="glow-ring glass-card rounded-3xl p-8 sm:p-14">
-                        <Image
-                            src="/logo-niskalarasi.png"
-                            alt="Niskalarasi Logo"
-                            width={400}
-                            height={200}
-                            className="h-28 w-auto sm:h-36 md:h-44"
-                        />
-                    </div>
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="group flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:scale-105"
+                        style={{
+                            background: isOpen ? "var(--th-card-hover)" : "var(--th-card)",
+                            border: "1px solid var(--th-border)",
+                            color: "var(--th-text-secondary)",
+                            boxShadow: "0 2px 12px var(--th-shadow)",
+                        }}
+                    >
+                        {isOpen ? "Show Less" : "Discover Our Identity"}
+                        <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                            <ChevronDown size={16} />
+                        </motion.div>
+                    </button>
                 </motion.div>
 
-                {/* Logo element cards */}
-                <div className="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4">
-                    {SITE_DATA.logoFilosofi.map((item, i) => {
-                        const color = LOGO_ELEMENT_COLORS[i];
-                        return (
-                            <motion.div
-                                key={item.title}
-                                initial={{ opacity: 0, y: 24 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: i * 0.1 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                className="glass-card glass-card-hover relative overflow-hidden p-6 text-center sm:p-7"
-                            >
-                                <div className={`absolute inset-0 bg-gradient-to-br ${color.bg} to-transparent`} />
-                                <div className="relative z-10">
-                                    {(() => {
-                                        const IconComp = ICON_MAP[item.icon];
-                                        return IconComp ? <IconComp size={36} color={color.color} /> : <span className="text-4xl">{item.icon}</span>;
-                                    })()}
-                                    <p className={`mt-3 text-base font-bold tracking-[0.2em] uppercase ${color.accent}`}>
-                                        {item.title}
-                                    </p>
-                                    <p className="mt-3 text-base leading-relaxed" style={{ color: "var(--th-text-secondary)" }}>
-                                        {item.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
-
-                {/* Visi & Misi */}
-                <motion.div
-                    className="mt-24 text-center sm:mt-28"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                >
-                    <p className="text-base font-semibold tracking-[0.3em] text-secondary uppercase">
-                        Arah Gerak Kabinet
-                    </p>
-                    <h3 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl" style={{ color: "var(--th-text)" }}>
-                        Visi & Misi
-                    </h3>
-                    <div className="mx-auto mt-5 h-[2px] w-16 bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
-                </motion.div>
-
-                {/* Visi */}
-                <motion.div
-                    className="mx-auto mt-10 max-w-3xl sm:mt-14"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                >
-                    <div className="glass-card relative overflow-hidden p-7 text-center sm:p-10">
-                        <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent" />
-                        <div className="relative z-10">
-                            <p className="text-sm font-bold tracking-[0.3em] text-secondary uppercase">
-                                Visi
-                            </p>
-                            <p className="mt-5 text-xl font-semibold leading-relaxed sm:text-2xl md:text-3xl" style={{ color: "var(--th-text)" }}>
-                                &ldquo;{SITE_DATA.cabinet.vision}&rdquo;
-                            </p>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* Misi */}
-                <div className="mx-auto mt-6 max-w-3xl space-y-4 sm:mt-8">
-                    {SITE_DATA.cabinet.missions.map((mission, i) => (
+                {/* All content hidden until expanded */}
+                <AnimatePresence>
+                    {isOpen && (
                         <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: i * 0.15 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            className="glass-card relative overflow-hidden p-5 sm:p-7"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                            className="overflow-hidden"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent" />
-                            <div className="relative z-10 flex gap-4 sm:gap-5">
-                                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-secondary/20 bg-secondary/10">
-                                    <span className="text-lg font-bold text-secondary">
-                                        {i + 1}
-                                    </span>
+                            <div className="pt-8">
+                                {/* ── About HMSI ── */}
+                                <motion.div
+                                    className="glass-card glow-ring mx-auto mb-10 max-w-3xl rounded-2xl p-6 sm:p-8"
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <h3 className="text-center text-lg font-bold sm:text-xl" style={{ color: "var(--th-text)" }}>
+                                        HMSI ITS
+                                    </h3>
+                                    <p className="mt-1 text-center text-xs font-semibold tracking-wider text-secondary uppercase sm:text-sm">
+                                        Himpunan Mahasiswa Sistem Informasi
+                                    </p>
+                                    <p className="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed sm:text-base" style={{ color: "var(--th-text-secondary)" }}>
+                                        The <strong>Information Systems Student Association</strong> (HMSI) is the official student
+                                        organization of the Department of Information Systems at <strong>Institut Teknologi
+                                            Sepuluh Nopember (ITS)</strong>, Surabaya. HMSI serves as a platform for students to grow
+                                        academically, professionally, and socially — fostering leadership, innovation, and
+                                        a strong sense of community.
+                                    </p>
+                                    <div className="mx-auto mt-5 flex flex-wrap items-center justify-center gap-3">
+                                        {["Dept. of Information Systems", "ITS Surabaya", "156 Active Members"].map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="rounded-full px-3 py-1 text-[10px] font-bold tracking-wider uppercase sm:text-xs"
+                                                style={{ background: "var(--th-card-hover)", color: "var(--th-text-muted)", border: "1px solid var(--th-border)" }}
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </motion.div>
+
+                                {/* ── Niskalarasi Philosophy ── */}
+                                <h3 className="mb-5 text-center text-sm font-bold tracking-[0.2em] uppercase" style={{ color: "var(--th-text-muted)" }}>
+                                    Niskalarasi Philosophy
+                                </h3>
+
+                                {/* Syllable chips */}
+                                <div className="mb-6 flex flex-wrap justify-center gap-3">
+                                    {SITE_DATA.filosofi.map((item, i) => {
+                                        const color = FILOSOFI_COLORS[i];
+                                        return (
+                                            <div
+                                                key={item.syllable}
+                                                className={`rounded-full border bg-gradient-to-r px-4 py-2 text-sm font-bold ${color.gradient} ${color.text} ${color.border}`}
+                                            >
+                                                {item.syllable} <span className="font-normal opacity-70">{item.word}</span>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
-                                <p className="text-base leading-relaxed sm:text-lg" style={{ color: "var(--th-text-secondary)" }}>
-                                    {mission}
-                                </p>
+
+                                {/* Filosofi detail cards */}
+                                <div className="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                                    {SITE_DATA.filosofi.map((item, i) => {
+                                        const color = FILOSOFI_COLORS[i];
+                                        return (
+                                            <motion.div
+                                                key={item.syllable}
+                                                className={`glass-card rounded-2xl border p-5 ${color.border}`}
+                                                initial={{ opacity: 0, y: 15 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: i * 0.1 }}
+                                            >
+                                                <p className={`text-2xl font-extrabold ${color.text}`}>{item.syllable}</p>
+                                                <p className="mt-2 text-lg font-bold" style={{ color: "var(--th-text)" }}>{item.word}</p>
+                                                <p className="mt-1 text-xs italic leading-relaxed" style={{ color: "var(--th-text-muted)" }}>{item.etymology}</p>
+                                                <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--th-text-secondary)" }}>{item.description}</p>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </div>
+
+                                {/* ── Logo Philosophy ── */}
+                                <h3 className="mb-5 mt-10 text-center text-sm font-bold tracking-[0.2em] uppercase" style={{ color: "var(--th-text-muted)" }}>
+                                    Logo Philosophy
+                                </h3>
+
+                                <div className="mx-auto mb-6 flex justify-center">
+                                    <div className="glow-ring glass-card rounded-3xl p-6 sm:p-10">
+                                        <Image
+                                            src="/logo-niskalarasi.png"
+                                            alt="Niskalarasi Logo"
+                                            width={400}
+                                            height={200}
+                                            className="max-h-24 w-auto object-contain sm:max-h-32 md:max-h-40"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                                    {SITE_DATA.logoFilosofi.map((item, i) => (
+                                        <motion.div
+                                            key={item.title}
+                                            className="glass-card rounded-xl p-4 text-center"
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: i * 0.08 + 0.2 }}
+                                        >
+                                            <p className="text-sm font-bold" style={{ color: "var(--th-text)" }}>{item.title}</p>
+                                            <p className="mt-1 text-xs leading-relaxed" style={{ color: "var(--th-text-secondary)" }}>{item.description}</p>
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </div>
                         </motion.div>
-                    ))}
-                </div>
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     );

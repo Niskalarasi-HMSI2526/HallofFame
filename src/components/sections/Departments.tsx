@@ -25,7 +25,7 @@ function PhotoCarousel({ photos, deptName }: { photos: string[]; deptName: strin
         return (
             <div className="flex h-28 w-full items-center justify-center rounded-xl sm:h-32" style={{ background: "var(--th-bg-alt)", border: "1px dashed var(--th-border)" }}>
                 <p className="text-xs italic" style={{ color: "var(--th-text-faint)" }}>
-                    Belum ada foto gallery
+                    No gallery photos yet
                 </p>
             </div>
         );
@@ -95,7 +95,8 @@ export default function Departments() {
                         </p>
                     </motion.div>
 
-                    <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
+
+                    <div className="grid gap-4 grid-cols-1 sm:gap-6 sm:grid-cols-2 xl:grid-cols-4 2xl:gap-8">
                         {departments.map((dept, i) => {
                             const head = dept.members.find(
                                 (m) => m.role === "Head of Department"
@@ -166,7 +167,7 @@ export default function Departments() {
                                                 className="text-sm font-medium"
                                                 style={{ color: "var(--th-text-muted)" }}
                                             >
-                                                {dept.members.length} anggota
+                                                {dept.members.length} members
                                             </span>
                                         </div>
 
@@ -233,7 +234,7 @@ export default function Departments() {
                                                         className="text-[10px] font-bold tracking-wider uppercase"
                                                         style={{ color: deptColor.color }}
                                                     >
-                                                        Kadep
+                                                        Head
                                                     </p>
                                                     <p
                                                         className="truncate text-sm font-medium"
@@ -277,7 +278,7 @@ export default function Departments() {
                                                         className="text-[10px] font-bold tracking-wider uppercase"
                                                         style={{ color: `${deptColor.color}AA` }}
                                                     >
-                                                        Wakadep
+                                                        Vice Head
                                                     </p>
                                                     <p
                                                         className="truncate text-sm font-medium"
@@ -294,7 +295,7 @@ export default function Departments() {
                                                 className="text-xs"
                                                 style={{ color: "var(--th-text-faint)" }}
                                             >
-                                                Tap untuk detail →
+                                                Tap for details →
                                             </span>
                                             <span
                                                 className="text-base font-medium"

@@ -15,6 +15,14 @@ export interface Department {
   logo?: string;
   /** Paths to gallery photos for carousel in /photos/{dept}/gallery/ */
   gallery?: string[];
+  /** Short tagline / role description */
+  roleFunction?: string;
+  /** List of agendas and initiatives */
+  agendas?: string[];
+  /** Goals & skills acquired description */
+  goals?: string;
+  /** Key achievement highlight */
+  achievementHighlight?: string;
 }
 
 export interface AchievementCategory {
@@ -25,6 +33,7 @@ export interface AchievementCategory {
 export interface FilosofiItem {
   syllable: string;
   word: string;
+  etymology: string;
   description: string;
 }
 
@@ -64,18 +73,18 @@ export const SITE_DATA = {
     year: "2024/2025",
     tagline: "Unlimited Vision, Unlimited Creativity",
     vision:
-      "Mewujudkan HMSI Sebagai Wadah Pengembangan Mahasiswa yang Progresif, Profesional, Kekeluargaan",
+      "To realize HMSI as a progressive, professional, and family-oriented platform for student development",
     missions: [
-      "Mengeskalasi sumber daya mahasiswa sistem informasi untuk berkembang dan mewujudkan wadah pencapaian prestasi dibidang akademik dan non-akademik mahasiswa sistem informasi",
-      "Meningkatkan rasa kekeluargaan yang peduli, berdampak baik pada lingkungan, menjunjung nilai sosial mahasiswa, cinta tanah air, dan harmonis",
-      "Menginisiasi pengembangan aspek himpunan yang profesional dan berdedikasi tinggi serta dapat memberikan kontribusi dan manfaat ke departemen hingga masyarakat sosial sesuai dengan bidang ilmu teknologi dan informasi",
+      "Escalating Information Systems students' resources to grow and establish a platform for academic and non-academic achievement",
+      "Fostering a caring sense of solidarity that positively impacts the environment, upholds students' social values, patriotism, and harmony",
+      "Initiating the development of a professional and highly dedicated organization that contributes to departments and the broader community in the field of information technology",
     ],
     ipms: {
       overall: 96.24,
       breakdown: {
-        progresif: 98.87,
+        progressive: 98.87,
         professional: 90.92,
-        kekeluargaan: 99.11,
+        solidarity: 99.11,
       },
     },
   },
@@ -83,26 +92,34 @@ export const SITE_DATA = {
     {
       syllable: "Nis~",
       word: "Niscaya",
+      etymology:
+        "Taken from the Indonesian word 'Niscaya', meaning certainty and belief",
       description:
-        "Segala sesuatu yang dilakukan pasti terjadi dan menggambarkan keyakinan HMSI akan langkah-langkahnya menjadi semakin baik",
+        "Everything we do is destined to happen, reflecting HMSI's belief that each step leads to greater progress",
     },
     {
       syllable: "Kala~",
       word: "Kalibrasi",
+      etymology:
+        "Taken from the Indonesian word 'Kalibrasi', meaning calibration",
       description:
-        "Pengaturan ulang HMSI dengan penyesuaian gagasan dan evaluasi",
+        "Recalibrating HMSI through the realignment of ideas and evaluation",
     },
     {
       syllable: "Ra~",
       word: "Akselerasi",
+      etymology:
+        "Taken from the Indonesian word 'Akselerasi', meaning acceleration",
       description:
-        "Perubahan cepat yang menggambarkan pergerakan dan pemikiran fungsionaris HMSI yang unggul",
+        "Rapid change that reflects the movement and forward-thinking mindset of HMSI's outstanding members",
     },
     {
       syllable: "Si~",
       word: "Eskalasi",
+      etymology:
+        "Taken from the Indonesian word 'Eskalasi', meaning escalation",
       description:
-        "Intensifikasi dinamika HMSI untuk menjadi lebih unggul",
+        "Intensifying HMSI's dynamics to achieve greater excellence",
     },
   ] as FilosofiItem[],
   logoFilosofi: [
@@ -110,25 +127,25 @@ export const SITE_DATA = {
       icon: "infinity",
       title: "Infinity",
       description:
-        "Menandakan trademark dari logo resmi Departemen Sistem Informasi ITS yang menaungi HMSI ITS, sekaligus menunjukkan nilai bahwa kita ingin berkembang menuju tak terbatas",
+        "Represents the trademark of the official Information Systems Department of Institut Teknologi Sepuluh Nopember (ITS) logo that oversees HMSI ITS, symbolizing our aspiration for limitless growth",
     },
     {
       icon: "cog",
-      title: "Gerigi",
+      title: "Gear",
       description:
-        "Melambangkan identitas kita sebagai bagian dari kampus ITS",
+        "Symbolizes our identity as part of Institut Teknologi Sepuluh Nopember (ITS)",
     },
     {
       icon: "gauge",
       title: "Speedometer",
       description:
-        "Menandakan bahwa kita berakselerasi cepat",
+        "Signifies that we accelerate rapidly",
     },
     {
       icon: "star",
-      title: "Bintang",
+      title: "Star",
       description:
-        "Menandakan bahwa kita ingin menuju bintang di angkasa yang luas",
+        "Signifies our aspiration to reach the stars in the vast sky",
     },
   ] as LogoFilosofi[],
   achievements: [
@@ -144,25 +161,29 @@ export const SITE_DATA = {
     {
       category: "Strategic Partnership & Social Impact",
       items: [
-        "Kemitraan Strategis PT Inalum (Bakti Sosial)",
-        "Sinergi Industri Telkomsel Surabaya (Company Visit 2025)",
+        "Strategic Partnership with PT Inalum (Community Service)",
+        "Industry Synergy with Telkomsel Surabaya (Company Visit 2025)",
       ],
     },
     {
       category: "External Networking",
       items: [
         "Ormawa Visit 2025: HIMASTA UNAIR & HMTG ITS",
-        "Revitalisasi Sinergi Alumni (IKASI) 2025-2030",
+        "Alumni Synergy Revitalization (IKASI) 2025-2030",
       ],
     },
   ] as AchievementCategory[],
   departments: [
     {
       id: "bph",
-      name: "Badan Pengurus Harian (Executive Board)",
+      name: "Executive Board (BPH)",
       performance: 96.24,
       logo: "/logos/bph.png",
       gallery: [],
+      roleFunction: "The Core Command. The Executive Board—comprising the President, Vice President, General Secretary, and General Treasurer—serves as the strategic engine of HMSI Niskalarasi. We orchestrate the organization's overarching direction, manage bureaucracy, ensure financial accountability, and foster internal synergy.",
+      agendas: ["Presidium Forums", "Cabinet Meetings", "Organizational Management Training (PMO)", "Internal Bonding", "HMSI Cashflow & Endowment Funds Management"],
+      goals: "Cultivate high-level strategic leadership and administrative excellence. Members develop sharp decision-making skills, crisis management, financial transparency, and the ability to align diverse teams toward a unified vision.",
+      achievementHighlight: "Successfully led the cabinet to an outstanding overall IPMS score of 96.24% and comprehensively finalized the end-of-year organizational report. Individual IPMS: President (95.32%), Vice President (98.00%), General Secretary (93.33%), General Treasurer (95.90%).",
       members: [
         { name: "Arkaan Hilmi Suharsoyo", nrp: "5026221140", role: "President", photo: "/photos/bph/5026221140.jpg" },
         { name: "Anas Ghifari Kemaputra", nrp: "5026221155", role: "Vice President", photo: "/photos/bph/5026221155.jpg" },
@@ -176,9 +197,13 @@ export const SITE_DATA = {
     {
       id: "hrd",
       name: "Human Resource Development",
-      performance: 0,
+      performance: 96.07,
       logo: "/logos/hrd.png",
       gallery: [],
+      roleFunction: "The Talent Factory. HRD is the backbone of organizational sustainability, responsible for shaping the mindset, leadership, and professional readiness of the student body.",
+      agendas: ["Freshman Orientation (OKKBK)", "Managerial Training (LKMM-TD)", "Career Preparation", "MANAGE", "Continuous Talent Mapping"],
+      goals: "Build a resilient, highly competent, and adaptive generation of leaders. Members gain invaluable expertise in human capital management, leadership coaching, performance evaluation, and conflict mediation.",
+      achievementHighlight: "Consistently produced top-tier organizational cadres, surpassing all leadership key performance indicators, and ensured a seamless cultural regeneration within HMSI.",
       members: [
         { name: "Febrian Abdan Husnan", nrp: "5026221117", role: "Head of Department", photo: "/photos/hrd/5026221117.jpg" },
         { name: "Muhammad Rafi Widya Danendra", nrp: "5026221088", role: "Deputy Head of Department", photo: "/photos/hrd/5026221088.jpg" },
@@ -201,9 +226,13 @@ export const SITE_DATA = {
     {
       id: "ia",
       name: "Internal Affair",
-      performance: 0,
+      performance: 100,
       logo: "/logos/ia.png",
       gallery: [],
+      roleFunction: "The Vibe Keeper. IA ensures a balanced, dynamic, and closely-knit campus life by nurturing student interests and celebrating internal organizational milestones.",
+      agendas: ["Graduations & Yudisium Celebrations", "HMSI Dies Natalis", "COMMEX", "TGIF", "Student Communities (E-Sports, Sports, Music)"],
+      goals: "Maintain high retention, mitigate student burnout, and foster a strong sense of belonging. Members refine their skills in mega-event organizing, community building, talent curation, and dynamic internal communication.",
+      achievementHighlight: "Achieved a flawless record by maintaining massive internal engagement rates and successfully executing a highly acclaimed HMSI Anniversary (Dies Natalis) celebration.",
       members: [
         { name: "Hajid Alauddin Ramadhan", nrp: "5026221197", role: "Head of Department", photo: "/photos/ia/5026221197.jpg" },
         { name: "Shof Watun Niswah", nrp: "5026221043", role: "Deputy Head of Department", photo: "/photos/ia/5026221043.jpg" },
@@ -228,9 +257,13 @@ export const SITE_DATA = {
     {
       id: "swf",
       name: "Student Welfare",
-      performance: 0,
+      performance: 86.34,
       logo: "/logos/swf.png",
       gallery: [],
+      roleFunction: "The Ultimate Support System. SWF is the frontline advocacy body dedicated to safeguarding students' academic, financial, and physical well-being.",
+      agendas: ["Healthcare Seminars (GOSIP)", "Academic Tutoring (SWF Tutorial)", "Tuition Fee (UKT) Appeal Assistance", "Scholarship Mapping", "SWF Fund"],
+      goals: "Ensure no student is left behind due to academic or financial barriers. Members build deep competencies in crisis advocacy, active listening, policy navigation, data-driven mapping, and peer-to-peer counseling.",
+      achievementHighlight: "Proactively advocated for and resolved hundreds of tuition fee appeal cases, while accurately distributing scholarship databases and financial aids to students in need.",
       members: [
         { name: "Fajhri Ramadhan", nrp: "5026221030", role: "Head of Department", photo: "/photos/swf/5026221030.jpg" },
         { name: "Muhammad Irsyad Fahmi", nrp: "5026221187", role: "Deputy Head of Department", photo: "/photos/swf/5026221187.jpg" },
@@ -254,9 +287,13 @@ export const SITE_DATA = {
     {
       id: "rnd",
       name: "Research and Development",
-      performance: 0,
+      performance: 100,
       logo: "/logos/rnd.png",
       gallery: [],
+      roleFunction: "The Think Tank. RnD is the incubator for academic excellence, technological innovation, and competitive achievement within the Information Systems department.",
+      agendas: ["Scientific Writing Training (PKTI)", "IS Competitions", "Competency & Innovation Center (CIC)", "National Research Team Mentoring"],
+      goals: "Foster a culture of analytical thinking and scientific problem-solving. Members acquire profound skills in research methodology, critical data analysis, academic writing, and project pitching.",
+      achievementHighlight: "Achieved a flawless performance by propelling HMSI into the Top 10 Internal Selection of PPK ORMAWA ITS 2025 and significantly boosting student participation in national competitions (PKM & Gemastik).",
       members: [
         { name: "Muhammad Rafli Krishnadanu P. W.", nrp: "5026221099", role: "Head of Department", photo: "/photos/rnd/5026221099.jpg" },
         { name: "Achmad Fahmi Ainur Ridho", nrp: "5026221167", role: "Deputy Head of Department", photo: "/photos/rnd/5026221167.jpg" },
@@ -281,9 +318,13 @@ export const SITE_DATA = {
     {
       id: "im",
       name: "Information Media",
-      performance: 0,
+      performance: 95.90,
       logo: "/logos/im.png",
       gallery: [],
+      roleFunction: "The Creative Agency. IM acts as the visual and digital communication mastermind behind HMSI's public image, responsible for social media management, creative branding, and digital journalism.",
+      agendas: ["GengSI Magazine", "Basic Media Schooling (BMS)", "OBSESI Podcast", "LayarHMSI", "Live Reporting", "Design Tutorials"],
+      goals: "Deliver impactful visual storytelling and elevate the organization's digital presence. Members master digital marketing, graphic design, copywriting, and public relations, translating complex information into engaging content.",
+      achievementHighlight: "Swept the KM ITS 2025 prestigious awards: Best Information Media (Overall), Best Social Media Management, and Best Visual Branding & Content Design.",
       members: [
         { name: "Diva Ardelia Alyadrus", nrp: "5026221029", role: "Head of Department", photo: "/photos/im/5026221029.jpg" },
         { name: "Luthfan Aryananda Purwito", nrp: "5026221166", role: "Deputy Head of Department", photo: "/photos/im/5026221166.jpg" },
@@ -316,9 +357,13 @@ export const SITE_DATA = {
     {
       id: "ea",
       name: "External Affair",
-      performance: 0,
+      performance: 98.97,
       logo: "/logos/ea.png",
       gallery: [],
+      roleFunction: "The Diplomat. EA is the frontline of HMSI's diplomacy, establishing cross-institutional relationships, maintaining alumni networks, and preparing students for global opportunities.",
+      agendas: ["Ormawa Visits", "Abroad Preparation Program (APP)", "Alumni Career Talks", "English Clinics", "HMSI Connect"],
+      goals: "Build a robust professional network and bridge the gap between students, alumni, and the industrial world. Members hone their skills in stakeholder management, B2B negotiation, professional communication, and strategic partnership building.",
+      achievementHighlight: "Successfully executed cross-disciplinary Ormawa Visits (HIMASTA UNAIR & HMTG ITS), revitalized the 2025-2030 IKASI alumni synergy, and partnered with Telkomsel Surabaya for an industrial visit.",
       members: [
         { name: "Arjuna Putra Kharisma", nrp: "5026221210", role: "Head of Department", photo: "/photos/ea/5026221210.jpg" },
         { name: "Karina Filza Aafiyah", nrp: "5026221012", role: "Deputy Head of Department", photo: "/photos/ea/5026221012.jpg" },
@@ -342,9 +387,13 @@ export const SITE_DATA = {
     {
       id: "es",
       name: "Entrepreneurship",
-      performance: 0,
+      performance: 100,
       logo: "/logos/es.png",
       gallery: [],
+      roleFunction: "The Business Hub. ES functions as the sociopreneurial incubator for students and the independent financial engine of the organization.",
+      agendas: ["Entrepreneurship Workshops", "IS Store (Merchandise & F&B)", "Warunk ES (Student Marketplace)", "ES Spotlight"],
+      goals: "Instill a robust entrepreneurial mindset. Members acquire practical, real-world skills in financial modeling, B2C sales, marketing strategy, supply chain basics, and sustainable business management.",
+      achievementHighlight: "Delivered a flawless performance by securing a healthy independent cash flow via the IS Store and successfully empowering dozens of student SMEs through the Warunk ES ecosystem.",
       members: [
         { name: "Muhammad Alvin Fairuz Tsany", nrp: "5026221151", role: "Head of Department", photo: "/photos/es/5026221151.jpg" },
         { name: "Muhammad Maulana Mukti", nrp: "5026221201", role: "Deputy Head of Department", photo: "/photos/es/5026221201.jpg" },
@@ -371,9 +420,13 @@ export const SITE_DATA = {
     {
       id: "socdev",
       name: "Social Development",
-      performance: 0,
+      performance: 99.78,
       logo: "/logos/socdev.png",
       gallery: [],
+      roleFunction: "The Impact Maker. SocDev channels the technological expertise of Information Systems students into tangible community empowerment and philanthropic activities.",
+      agendas: ["IT Teaching in Schools (SIMETRI)", "Direct Community Service (SINERGI)", "Social Campaigns (AKSI)", "SocioTrip", "Disaster Relief Fundraising (SocioBank)"],
+      goals: "Cultivate social empathy and utilize technology for the greater good. Members develop expertise in community project management, CSR mapping, empathetic leadership, and sustainable program execution.",
+      achievementHighlight: "Successfully secured a strategic partnership and exclusive sponsorship with PT Inalum to fully fund and execute large-scale community service initiatives.",
       members: [
         { name: "Achmad Faiz", nrp: "5026221100", role: "Head of Department", photo: "/photos/socdev/5026221100.jpg" },
         { name: "Aulisa Rizki Amanda", nrp: "5026221024", role: "Deputy Head of Department", photo: "/photos/socdev/5026221024.jpg" },

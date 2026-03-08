@@ -44,7 +44,7 @@ export default function Loader() {
                 </motion.p>
 
                 <motion.h1
-                    className="gradient-text mt-3 text-5xl font-bold tracking-[0.15em] uppercase sm:text-6xl"
+                    className="gradient-text mt-3 text-4xl font-bold tracking-[0.08em] uppercase sm:text-5xl sm:tracking-[0.15em] md:text-6xl"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.7 }}

@@ -7,11 +7,10 @@ import Navbar from "@/components/Navbar";
 import ThemeToggle from "@/components/ThemeToggle";
 import StarField from "@/components/StarField";
 import Hero from "@/components/sections/Hero";
-import Filosofi from "@/components/sections/Filosofi";
-import Leaders from "@/components/sections/Leaders";
-import Performance from "@/components/sections/Performance";
-import Achievements from "@/components/sections/Achievements";
-import Departments from "@/components/sections/Departments";
+import VideoProfile from "@/components/sections/VideoProfile";
+import ProofSection from "@/components/sections/ProofSection";
+import TeamSection from "@/components/sections/TeamSection";
+import HallOfFame from "@/components/sections/HallOfFame";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -33,12 +32,20 @@ export default function Home() {
       <Navbar />
       <ThemeToggle />
       <main>
+        {/* 1. The Hook */}
         <Hero />
-        <Filosofi />
-        <Leaders />
-        <Performance />
-        <Achievements />
-        <Departments />
+
+        {/* 2. The Journey */}
+        <VideoProfile />
+
+        {/* 3. The Proof */}
+        <ProofSection />
+
+        {/* 5. The Team (BPH + Departments) */}
+        <TeamSection />
+
+        {/* 6. The Memories */}
+        <HallOfFame />
       </main>
       <Footer />
     </>

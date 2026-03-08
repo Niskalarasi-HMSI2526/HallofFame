@@ -10,9 +10,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "HMSI ITS — Kabinet Niskalarasi 2025 | Hall of Fame",
+  title: "HMSI ITS — Cabinet Niskalarasi 2025 | Hall of Fame",
   description:
-    "Hall of Fame Kabinet Niskalarasi 2025. Himpunan Mahasiswa Sistem Informasi — Institut Teknologi Sepuluh Nopember.",
+    "Hall of Fame Cabinet Niskalarasi 2025. Information Systems Student Association — Institut Teknologi Sepuluh Nopember (ITS).",
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${plusJakarta.variable} scroll-smooth`}>
+    <html lang="en" className={`${plusJakarta.variable} scroll-smooth`}>
       <body className="antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
