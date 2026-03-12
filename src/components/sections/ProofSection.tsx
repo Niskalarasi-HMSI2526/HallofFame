@@ -61,8 +61,8 @@ export default function ProofSection() {
                     <div
                         className="glass-card flex items-center gap-5 rounded-2xl p-5 sm:p-6"
                     >
-                        <div className="h-20 w-20 shrink-0 sm:h-24 sm:w-24">
-                            <GaugeChart value={ipms.overall} size={96} />
+                        <div className="flex shrink-0 items-center justify-center">
+                            <GaugeChart value={ipms.overall} size={120} showValue={false} />
                         </div>
                         <div>
                             <p className="text-sm font-bold tracking-wider uppercase" style={{ color: "var(--th-text-muted)" }}>

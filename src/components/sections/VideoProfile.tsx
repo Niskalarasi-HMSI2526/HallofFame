@@ -48,17 +48,6 @@ export default function VideoProfile() {
                         />
                     </div>
                 </motion.div>
-
-                <motion.p
-                    className="mt-4 text-center text-xs italic sm:text-sm"
-                    style={{ color: "var(--th-text-faint)" }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    viewport={{ once: true }}
-                >
-                    Replace with the official HMSI Niskalarasi aftermovie video URL
-                </motion.p>
             </div>
         </section>
     );

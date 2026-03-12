@@ -2,23 +2,58 @@
 
 import Image from "next/image";
 import { SITE_DATA } from "@/constants/data";
-import { Instagram, Linkedin, Mail, MapPin } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, Twitter, Facebook, Youtube, Link as LinkIcon, Smartphone, Music } from "lucide-react";
 
 const SOCIAL_LINKS = [
     {
-        icon: Instagram,
-        label: "Instagram",
-        href: "https://instagram.com/hmsi_its",
+        icon: LinkIcon,
+        label: "Linktree",
+        href: "https://linktr.ee/hmsi_its",
     },
     {
         icon: Linkedin,
         label: "LinkedIn",
-        href: "https://linkedin.com/company/hmsi-its",
+        href: "https://www.linkedin.com/company/hmsi-its/",
+    },
+    {
+        icon: Instagram,
+        label: "Instagram",
+        href: "https://www.instagram.com/hmsi_its",
+    },
+    {
+        icon: Music,
+        label: "TikTok",
+        href: "https://www.tiktok.com/@hmsi_its",
+    },
+    {
+        icon: Youtube,
+        label: "YouTube",
+        href: "https://www.youtube.com/channel/UCbqLEEMcWOyoYdxyKkKi24w",
+    },
+    {
+        icon: Music, // Using Music icon as alternative for Spotify since lucide doesn't have a direct spotify icon
+        label: "Spotify",
+        href: "https://open.spotify.com/show/55TkLkZZCZLwuawJ0WDd19?si=jwv-Y00xSWeUl56qWjwCzg&dl_branch=1&nd=1&dlsi=6c07c050a6644aaa",
+    },
+    {
+        icon: Twitter, // X
+        label: "X",
+        href: "https://x.com/HMSI_ITS",
+    },
+    {
+        icon: Facebook,
+        label: "Facebook",
+        href: "https://www.facebook.com/hmsi.its",
     },
     {
         icon: Mail,
         label: "Email",
-        href: "mailto:hmsi@its.ac.id",
+        href: "mailto:hima@is.its.ac.id",
+    },
+    {
+        icon: Smartphone, // WhatsApp
+        label: "WhatsApp",
+        href: "https://api.whatsapp.com/send?phone=6289526634395",
     },
 ];
 

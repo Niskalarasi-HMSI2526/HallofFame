@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import AudioPlayer from "@/components/AudioPlayer";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -23,7 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} scroll-smooth`}>
       <body className="antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <AudioPlayer />
+        </ThemeProvider>
       </body>
     </html>
   );

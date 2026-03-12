@@ -8,7 +8,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import StarField from "@/components/StarField";
 import Hero from "@/components/sections/Hero";
 import VideoProfile from "@/components/sections/VideoProfile";
-import ProofSection from "@/components/sections/ProofSection";
+import BoardOfMilestones from "@/components/sections/BoardOfMilestones";
 import TeamSection from "@/components/sections/TeamSection";
 import HallOfFame from "@/components/sections/HallOfFame";
 import Footer from "@/components/Footer";
@@ -38,8 +38,8 @@ export default function Home() {
         {/* 2. The Journey */}
         <VideoProfile />
 
-        {/* 3. The Proof */}
-        <ProofSection />
+        {/* 3. The Proof (Board of Milestones Bento Grid) */}
+        <BoardOfMilestones />
 
         {/* 5. The Team (BPH + Departments) */}
         <TeamSection />

@@ -6,7 +6,6 @@ import Image from "next/image";
 import { Crown, Users, ChevronDown } from "lucide-react";
 import { SITE_DATA, ROLE_ORDER, type Department } from "@/constants/data";
 import DepartmentModal from "@/components/DepartmentModal";
-import GaugeChart from "@/components/GaugeChart";
 
 const DEPT_COLORS: Record<string, { color: string; border: string; bg: string }> = {
     hrd: { color: "#F686EB", border: "border-[#F686EB]/30", bg: "from-[#F686EB]/15 to-[#F686EB]/3" },
@@ -202,18 +201,7 @@ export default function TeamSection() {
                                     <PhotoCarousel photos={bph?.gallery || []} name="Executive Board" />
                                 </div>
 
-                                {/* IPMS Gauge */}
-                                <div className="mt-3 flex items-center justify-center">
-                                    <GaugeChart
-                                        value={bph?.performance || 96.24}
-                                        size={100}
-                                        strokeWidth={7}
-                                        color={bphColor}
-                                        label="IPMS"
-                                        showValue
-                                        animated
-                                    />
-                                </div>
+
 
                                 {/* President */}
                                 {president && (
@@ -316,20 +304,7 @@ export default function TeamSection() {
                                                 <PhotoCarousel photos={dept.gallery || []} name={dept.name} />
                                             </div>
 
-                                            {/* Performance Gauge */}
-                                            {dept.performance !== undefined && dept.performance > 0 && (
-                                                <div className="mt-3 flex items-center justify-center">
-                                                    <GaugeChart
-                                                        value={dept.performance}
-                                                        size={100}
-                                                        strokeWidth={7}
-                                                        color={deptColor.color}
-                                                        label="IPMS"
-                                                        showValue
-                                                        animated
-                                                    />
-                                                </div>
-                                            )}
+
 
                                             {/* Kadep */}
                                             {head && (

@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { SITE_DATA, type Department } from "@/constants/data";
 import DepartmentModal from "@/components/DepartmentModal";
-import GaugeChart from "@/components/GaugeChart";
 
 const DEPT_COLORS: Record<string, { color: string; border: string; bg: string }> = {
     hrd: { color: "#F686EB", border: "border-[#F686EB]/30", bg: "from-[#F686EB]/15 to-[#F686EB]/3" },
@@ -187,20 +186,6 @@ export default function Departments() {
                                             />
                                         </div>
 
-                                        {/* Performance Gauge (if has performance) */}
-                                        {dept.performance !== undefined && dept.performance > 0 && (
-                                            <div className="mt-4 flex items-center justify-center">
-                                                <GaugeChart
-                                                    value={dept.performance}
-                                                    size={100}
-                                                    strokeWidth={7}
-                                                    color={deptColor.color}
-                                                    label="IPMS"
-                                                    showValue
-                                                    animated
-                                                />
-                                            </div>
-                                        )}
 
                                         {/* Kadep */}
                                         {head && (
