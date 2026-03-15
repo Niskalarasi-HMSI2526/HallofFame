@@ -3,129 +3,19 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, TrendingUp, Users, Target, Briefcase, Zap, Globe, ShieldCheck } from "lucide-react";
+import { X, TrendingUp, Users, Target, Briefcase, Zap, Globe, ShieldCheck, ChevronRight } from "lucide-react";
 import GaugeChart from "@/components/GaugeChart";
 
-export const PORTFOLIO_DATA = {
-    header: {
-        title: "Board of Milestones",
-        subtitle: "Integrated Performance & Impact Portfolio of HMSI Niskalarasi Cabinet."
-    },
-    vision_mission: {
-        vision: "To realize HMSI as a progressive, professional, and family-oriented platform for student development.",
-        missions: [
-            { id: "M1", title: "Progressive", desc: "Escalating Information Systems students' resources to grow and establish a platform for academic and non-academic achievement.", achievement: "96.71%" },
-            { id: "M2", title: "Solidarity", desc: "Fostering a caring sense of solidarity that positively impacts the environment, upholds students' social values, patriotism, and harmony.", achievement: "100%" },
-            { id: "M3", title: "Professional", desc: "Initiating the development of a professional and highly dedicated organization that contributes to departments and the broader community in the field of information technology.", achievement: "100%" }
-        ]
-    },
-    bento_cards: [
-        {
-            id: "executive_summary",
-            category: "1. Executive Summary",
-            previewTitle: "Cabinet Performance Index",
-            previewNumber: "96.71%",
-            previewSubtitle: "Overall IPMS Score",
-            size: "col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 lg:row-span-2",
-            icon: <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8" />,
-            color: "bg-blue-500/10 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400",
-            image: "", // Add your image path here, e.g., "/images/milestones/executive.jpg"
-            modalContent: {
-                heading: "The Executive Summary (Numbers Speak Louder)",
-                body: "In this section, we showcase the true power of the management scale we handled.\n- **Total Human Capital Managed:** Led and supervised a dynamic team comprising **150+ talented functionaries**.\n- **Overall Organizational KPI:** Successfully achieved an average work program completion rate of **96.71%** across all operational lines.\n- **Revenue Generation:** Managed an independent business cycle with total profit reaching **Rp8.000.000** (achieving **133%** of the initial target).\n- **Digital Branding Authority:** Awarded **1st Place at Media Excellence Summit** and recognized as the **Most Published Student Organization**, establishing HMSI as the highest standard for digital publication within the university.\n- **Public Reach & Growth:** Successfully increased digital content engagement by **800%** above target through social campaigns and profile features."
-            }
-        },
-        {
-            id: "corporate_mapping",
-            category: "2. Corporate Mapping",
-            previewTitle: "The Core Engine",
-            previewNumber: "8 + 1",
-            previewSubtitle: "Depts & BPH",
-            size: "col-span-1 md:col-span-2 lg:col-span-2 md:row-span-1 lg:row-span-1 lg:col-start-3",
-            icon: <Users className="h-6 w-6 sm:h-8 sm:w-8" />,
-            color: "bg-purple-500/10 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400",
-            image: "",
-            modalContent: {
-                heading: "Corporate-Style Organizational Mapping",
-                body: "Shifting the perspective on HMSI's structure into integrated corporate functions:\n- **Executive Leadership (C-Suite):** President (Strategic Vision), VP (Operations), Gen. Treas (Finance), Gen. Sec (Regulations/SOP).\n- **Business Development & Revenue (ES):** Responsible for the organization's *retail operations* and *revenue streams*.\n- **Corporate Communications & Creative Agency (IM):** Manages *branding*, multimedia, and *social media presence*.\n- **Talent Management & People Ops (HRD):** Focuses on *onboarding*, performance evaluation, and *career preparation*.\n- **Strategic Partnerships & External Relations (EA):** Manages B2B relationships with industry, alumni, and external institutions.\n- **Research, Innovation, & Technical Training (RnD):** The center for technical *hard-skill* development and scientific paper production.\n- **Corporate Social Responsibility (CSR) & Community Engagement (SocDev):** Manages community service programs and social impact.\n- **Student Affairs & Customer Success (SWF):** Ensures the welfare, advocacy, and satisfaction of our main constituents.\n- **Workplace Culture & Employee Engagement (IA):** Builds an inclusive, harmonious, and productive work environment."
-            }
-        },
-        {
-            id: "star_revenue",
-            category: "3. Revenue & Operational Scale",
-            previewTitle: "IS Store",
-            previewNumber: "Rp8M",
-            previewSubtitle: "Financial Independence",
-            size: "col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1",
-            icon: <Briefcase className="h-6 w-6 sm:h-8 sm:w-8" />,
-            color: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400",
-            image: "",
-            modalContent: {
-                heading: "STAR Method: Revenue & Operational Scale (ES & VP)",
-                body: "**Situation/Task:** The organization required strong independent funding to support large-scale programs without relying entirely on campus bureaucracy.\n- **Action:** Optimized the **IS Store** business unit by increasing restock frequency up to **4x a month** and diversifying products. Managerially, the Vice President executed strict control over the business department's KPIs to ensure targets were met.\n- **Result:** Generated a total profit of **Rp8.000.000**, surpassing the target by **133%**, and built a disciplined internal supply chain system."
-            }
-        },
-        {
-            id: "star_virality",
-            category: "4. Digital Virality",
-            previewTitle: "National Brand",
-            previewNumber: "1st",
-            previewSubtitle: "Brand Excellence",
-            size: "col-span-1 md:col-span-1 lg:col-span-1 md:row-span-1 lg:row-span-1",
-            icon: <Globe className="h-6 w-6 sm:h-8 sm:w-8" />,
-            color: "bg-pink-500/10 text-pink-600 dark:bg-pink-500/20 dark:text-pink-400",
-            image: "",
-            modalContent: {
-                heading: "STAR Method: National Brand Excellence (IM & SocDev)",
-                body: "**Situation/Task:** Elevate the organization's visibility and educate the public through high-quality digital content.\n- **Action:** Implemented an *omnichannel* strategy across YouTube, Instagram, and TikTok, and participated in media excellence competitions to validate quality.\n- **Result:** Achieved **1st Place at the National Level** in student organization publication and hit a content view count reaching **10,293 views** (shattering the initial target of 500 views)."
-            }
-        },
-        {
-            id: "star_event",
-            category: "5. External Validation",
-            previewTitle: "B2B Synergy",
-            previewNumber: "310%",
-            previewSubtitle: "Strategic Networking",
-            size: "col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1 lg:col-start-4",
-            icon: <Zap className="h-6 w-6 sm:h-8 sm:w-8" />,
-            color: "bg-amber-500/10 text-amber-600 dark:bg-amber-500/20 dark:text-amber-400",
-            image: "",
-            modalContent: {
-                heading: "External Validation & Strategic Networking (EA & RnD)",
-                body: "Proving that this organization has strong connections with the professional world:\n- **Corporate Partners:** Successfully conducted *B2B pitching* and industry visits with participant turnout skyrocketing to **310% of the target**.\n- **Scientific Recognition:** The RnD Department successfully catalyzed the production of **16 scientific papers**, demonstrating the organization's intellectual quality well above average standards.\n- **Stakeholder Trust:** Maintained Student Service Satisfaction (CSAT) levels at **96-99%**, proving high trust from constituents."
-            }
-        },
-        {
-            id: "compliance",
-            category: "6. Audit & Compliance",
-            previewTitle: "Financial Integrity",
-            previewNumber: "100%",
-            previewSubtitle: "Internal Control",
-            size: "col-span-1 md:col-span-2 lg:col-span-3 lg:row-span-1 lg:col-start-1",
-            icon: <Target className="h-6 w-6 sm:h-8 sm:w-8" />,
-            color: "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-400",
-            image: "",
-            modalContent: {
-                heading: "Governance, Audit, & Compliance (GenTre & GenSec)",
-                body: "Showcasing that HMSI's internal management is highly organized and transparent:\n- **Financial Integrity:** Achieved a financial administration compliance rate (**SPJ**) of **100%** and periodically published financial reports to the public via 'HMSI Treasure'.\n- **Internal Control:** Managed the organizational asset database with a security level of **100% (zero loss/damage)** and ensured all correspondence was digitally documented in real-time.\n- **Performance Tracking:** Implemented a **'Functionary Report Card'** system to quantitatively evaluate **150+ members**, producing accurate data for leadership promotion."
-            }
-        },
-        {
-            id: "legacy",
-            category: "7. Sustainability",
-            previewTitle: "Sustainable Systems",
-            previewNumber: "Legacy",
-            previewSubtitle: "Proof of Good Management",
-            size: "col-span-1 md:col-span-2 lg:col-span-4 lg:row-span-1",
-            icon: <ShieldCheck className="h-6 w-6 sm:h-8 sm:w-8" />,
-            color: "bg-slate-500/10 text-slate-600 dark:bg-slate-500/20 dark:text-slate-400",
-            image: "",
-            modalContent: {
-                heading: "Legacy & Sustainability",
-                body: "HMSI Niskalarasi is not just about a single term; it is about sustainability:\n- **Standard Operating Procedures (SOP):** Left a legacy of comprehensive **HMSI SOPs** for administration, finance, and inventory management to guide the next cabinet.\n- **Leadership Pipeline:** Successfully conducted succession planning through the **'EB Internship'** and **'Niskalarasi Relay'** programs, ensuring future leaders already possess standard skill-sets.\n- **Institutional Memory:** Built the **HMSI Docs** system and the **EA-Connect** alumni database reaching **60% data completeness**, a valuable asset for long-term organizational development."
-            }
-        }
-    ]
+import { PORTFOLIO_DATA } from "@/constants/data";
+
+const ICON_MAP: Record<string, React.ReactNode> = {
+    TrendingUp: <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8" />,
+    Users: <Users className="h-6 w-6 sm:h-8 sm:w-8" />,
+    Briefcase: <Briefcase className="h-6 w-6 sm:h-8 sm:w-8" />,
+    Globe: <Globe className="h-6 w-6 sm:h-8 sm:w-8" />,
+    Zap: <Zap className="h-6 w-6 sm:h-8 sm:w-8" />,
+    Target: <Target className="h-6 w-6 sm:h-8 sm:w-8" />,
+    ShieldCheck: <ShieldCheck className="h-6 w-6 sm:h-8 sm:w-8" />
 };
 
 // Formatting helper for modal body text (handles bullets and bolding)
@@ -188,133 +78,211 @@ const formatModalText = (text: string) => {
 
 export default function BoardOfMilestones() {
     const [selectedCard, setSelectedCard] = useState<typeof PORTFOLIO_DATA.bento_cards[0] | null>(null);
+    const [mainModalOpen, setMainModalOpen] = useState(false);
 
     return (
-        <section className="relative overflow-hidden py-16 sm:py-24" style={{ background: "transparent" }}>
-            <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-
-                {/* Header & Vision */}
-                <div className="mb-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-                    <div className="max-w-3xl">
-                        <div
-                            className="mb-4 inline-flex items-center rounded-full px-3 py-1 text-sm font-medium"
-                            style={{ background: "var(--th-card)", border: "1px solid var(--th-border)", color: "var(--th-text-muted)" }}
-                        >
-                            <TrendingUp className="mr-2 h-4 w-4" />
-                            Performance & Achievements
-                        </div>
-                        <h2 className="mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-5xl" style={{ color: "var(--th-text)" }}>
-                            {PORTFOLIO_DATA.header.title}
-                        </h2>
-                        <p className="text-lg sm:text-xl" style={{ color: "var(--th-text-secondary)" }}>
-                            {PORTFOLIO_DATA.header.subtitle}
-                        </p>
-                    </div>
-
-                    {/* Gauge Chart Metric */}
-                    <div className="flex-shrink-0 md:pl-12">
-                        <GaugeChart
-                            value={96.71}
-                            label="IPMS SCORE"
-                            color="#10b981"
-                            size={160}
-                        />
-                    </div>
+        <>
+            {/* ── PREVIEW CARD ── */}
+            <motion.div
+                className="glass-card glow-ring flex w-full flex-col items-center rounded-2xl p-6 text-center sm:p-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true, margin: "-40px" }}
+            >
+                <div
+                    className="mb-3 inline-flex items-center rounded-full px-3 py-1 text-[10px] sm:text-xs font-semibold tracking-wider uppercase"
+                    style={{ background: "var(--th-bg-alt)", border: "1px solid var(--th-border)", color: "var(--th-text-muted)" }}
+                >
+                    <TrendingUp className="mr-1.5 h-3 w-3 text-emerald-500" />
+                    Performance & Achievements
+                </div>
+                <h2 className="mb-2 text-xl font-extrabold tracking-tight sm:text-2xl md:text-3xl" style={{ color: "var(--th-text)" }}>
+                    {PORTFOLIO_DATA.header.title}
+                </h2>
+                <p className="mb-4 text-xs sm:text-sm leading-relaxed max-w-md" style={{ color: "var(--th-text-secondary)" }}>
+                    {PORTFOLIO_DATA.header.subtitle}
+                </p>
+                
+                <div className="mb-6 scale-75 origin-top sm:scale-90">
+                    <GaugeChart
+                        value={96.71}
+                        label="IPMS SCORE"
+                        color="#10b981"
+                        size={120}
+                    />
                 </div>
 
-                {/* Vision & Missions Grid */}
-                <div className="mb-16 grid gap-6 lg:grid-cols-4">
-                    <div
-                        className="rounded-2xl p-6 shadow-sm lg:col-span-1"
-                        style={{ background: "var(--th-card)", border: "1px solid var(--th-border)" }}
+                <button
+                    onClick={() => setMainModalOpen(true)}
+                    className="group flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all duration-300 hover:scale-105 sm:text-sm shadow-sm hover:shadow-md"
+                    style={{
+                        background: "var(--th-card)",
+                        border: "1px solid var(--th-border)",
+                        color: "var(--th-text)",
+                        boxShadow: "0 2px 12px var(--th-shadow)",
+                    }}
+                >
+                    Discover Our Milestones
+                    <ChevronRight size={14} className="transition-transform group-hover:translate-x-0.5 text-secondary" />
+                </button>
+            </motion.div>
+
+            {/* ── MAIN MODAL (The Full Board) ── */}
+            <AnimatePresence>
+                {mainModalOpen && (
+                    <motion.div
+                        className="fixed inset-0 z-[80] flex items-center justify-center p-3 sm:p-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                     >
-                        <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-secondary">Our Vision</h3>
-                        <p className="text-lg font-medium leading-relaxed" style={{ color: "var(--th-text)" }}>
-                            "{PORTFOLIO_DATA.vision_mission.vision}"
-                        </p>
-                    </div>
-                    <div className="grid gap-6 sm:grid-cols-3 lg:col-span-3">
-                        {PORTFOLIO_DATA.vision_mission.missions.map((mission) => (
-                            <div
-                                key={mission.id}
-                                className="flex flex-col rounded-2xl p-6 shadow-sm"
-                                style={{ background: "var(--th-card)", border: "1px solid var(--th-border)" }}
-                            >
-                                <div className="mb-3 flex items-center justify-between">
-                                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold" style={{ background: "var(--th-bg-alt)", color: "var(--th-text-muted)" }}>
-                                        {mission.id}
-                                    </span>
-                                    <span className="font-mono text-xl font-bold text-emerald-500">
-                                        {mission.achievement}
-                                    </span>
-                                </div>
-                                <h4 className="mb-2 text-lg font-bold" style={{ color: "var(--th-text)" }}>{mission.title}</h4>
-                                <p className="flex-1 text-sm" style={{ color: "var(--th-text-secondary)" }}>{mission.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Bento Grid */}
-                <div className="grid grid-flow-dense grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[240px]">
-                    {PORTFOLIO_DATA.bento_cards.map((card, i) => (
                         <motion.div
-                            key={card.id}
-                            onClick={() => setSelectedCard(card)}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: i * 0.1 }}
-                            whileHover={{ scale: 0.98 }}
-                            className={`group relative cursor-pointer overflow-hidden rounded-3xl p-8 shadow-sm transition-all hover:shadow-md ${card.size} flex flex-col justify-between`}
-                            style={{ background: "var(--th-card)", border: "1px solid var(--th-border)" }}
-                        >
+                            className="absolute inset-0 backdrop-blur-sm"
+                            style={{ background: "var(--th-overlay)" }}
+                            onClick={() => setMainModalOpen(false)}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        />
 
-                            {card.image && (
-                                <div className="absolute inset-0 z-0 overflow-hidden flex items-end justify-end">
-                                    <div className="relative h-[80%] w-[80%]">
-                                        <Image
-                                            src={card.image}
-                                            alt={card.previewTitle}
-                                            fill
-                                            className="object-contain object-bottom right-0 opacity-90 transition-transform duration-700 group-hover:scale-105"
+                        <motion.div
+                            className="relative z-10 max-h-[95vh] w-full max-w-6xl overflow-y-auto rounded-3xl shadow-2xl"
+                            style={{ background: "var(--th-bg)", border: "1px solid var(--th-border)" }}
+                            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] } }}
+                            exit={{ opacity: 0, y: 20, scale: 0.95, transition: { duration: 0.3 } }}
+                        >
+                            {/* Header sticky */}
+                            <div className="sticky top-0 z-20 px-5 py-5 backdrop-blur-xl sm:px-8 border-b" style={{ borderColor: "var(--th-border)", background: "var(--th-bg-alt)/95" }}>
+                                <div className="flex items-start justify-between">
+                                    <div className="pr-4">
+                                        <p className="text-xs font-bold tracking-[0.2em] text-secondary uppercase sm:text-sm">Performance & Achievements</p>
+                                        <h3 className="mt-1 text-2xl font-bold sm:text-3xl" style={{ color: "var(--th-text)" }}>
+                                            {PORTFOLIO_DATA.header.title}
+                                        </h3>
+                                    </div>
+                                    <button
+                                        onClick={() => setMainModalOpen(false)}
+                                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg transition-colors bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10"
+                                        style={{ color: "var(--th-text-muted)" }}
+                                        aria-label="Close modal"
+                                    >
+                                        ✕
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="p-5 sm:p-8 space-y-12">
+                                {/* Gauge Chart Header in Modal */}
+                                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 pb-4 border-b border-white/5" style={{ borderColor: "var(--th-border)" }}>
+                                    <p className="text-lg sm:text-xl max-w-2xl leading-relaxed" style={{ color: "var(--th-text-secondary)" }}>
+                                        {PORTFOLIO_DATA.header.subtitle}
+                                    </p>
+                                    <div className="flex-shrink-0">
+                                        <GaugeChart
+                                            value={96.71}
+                                            label="IPMS SCORE"
+                                            color="#10b981"
+                                            size={140}
                                         />
                                     </div>
-                                    {/* Gradient to ensure text readability */}
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-[var(--th-card)] via-[var(--th-card)]/80 to-transparent"></div>
                                 </div>
-                            )}
 
-                            <div className="relative z-10 flex items-start justify-between">
-                                <span
-                                    className="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium backdrop-blur-md"
-                                    style={{ background: "var(--th-bg-alt)", border: "1px solid var(--th-border)", color: "var(--th-text-muted)" }}
-                                >
-                                    {card.category}
-                                </span>
-                                <div className={`flex h-12 w-12 items-center justify-center rounded-xl backdrop-blur-md shadow-sm`} style={{ background: "var(--th-bg-alt)", color: "var(--th-text-muted)" }}>
-                                    {card.icon}
+                                {/* Vision & Missions Grid */}
+                                <div className="grid gap-6 lg:grid-cols-4">
+                                    <div
+                                        className="rounded-2xl p-6 shadow-sm lg:col-span-1"
+                                        style={{ background: "var(--th-card)", border: "1px solid var(--th-border)" }}
+                                    >
+                                        <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-secondary">Our Vision</h3>
+                                        <p className="text-lg font-medium leading-relaxed" style={{ color: "var(--th-text)" }}>
+                                            "{PORTFOLIO_DATA.vision_mission.vision}"
+                                        </p>
+                                    </div>
+                                    <div className="grid gap-6 sm:grid-cols-3 lg:col-span-3">
+                                        {PORTFOLIO_DATA.vision_mission.missions.map((mission) => (
+                                            <div
+                                                key={mission.id}
+                                                className="flex flex-col rounded-2xl p-6 shadow-sm"
+                                                style={{ background: "var(--th-card)", border: "1px solid var(--th-border)" }}
+                                            >
+                                                <div className="mb-3 flex items-center justify-between">
+                                                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold" style={{ background: "var(--th-bg-alt)", color: "var(--th-text-muted)" }}>
+                                                        {mission.id}
+                                                    </span>
+                                                    <span className="font-mono text-xl font-bold text-emerald-500">
+                                                        {mission.achievement}
+                                                    </span>
+                                                </div>
+                                                <h4 className="mb-2 text-lg font-bold" style={{ color: "var(--th-text)" }}>{mission.title}</h4>
+                                                <p className="flex-1 text-sm" style={{ color: "var(--th-text-secondary)" }}>{mission.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div className="relative z-10 mt-6">
-                                <p className="mb-1 text-sm font-medium uppercase tracking-wider text-secondary">
-                                    {card.previewSubtitle}
-                                </p>
-                                <h3 className="mb-2 text-4xl font-extrabold tracking-tight sm:text-5xl drop-shadow-sm" style={{ color: "var(--th-text)" }}>
-                                    {card.previewNumber}
-                                </h3>
-                                <p className="text-lg font-medium drop-shadow-sm" style={{ color: "var(--th-text-secondary)" }}>
-                                    {card.previewTitle}
-                                </p>
+                                {/* Bento Grid */}
+                                <div className="grid grid-flow-dense grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[240px]">
+                                    {PORTFOLIO_DATA.bento_cards.map((card, i) => (
+                                        <motion.div
+                                            key={card.id}
+                                            onClick={() => setSelectedCard(card)}
+                                            initial={{ opacity: 0, scale: 0.98 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.3, delay: Math.min(i * 0.05, 0.5) }}
+                                            whileHover={{ scale: 0.98 }}
+                                            className={`group relative cursor-pointer overflow-hidden rounded-3xl p-8 shadow-sm transition-all hover:shadow-md ${card.size} flex flex-col justify-between`}
+                                            style={{ background: "var(--th-card)", border: "1px solid var(--th-border)" }}
+                                        >
+                                            {card.image && (
+                                                <div className="absolute inset-0 z-0 overflow-hidden flex items-end justify-end">
+                                                    <div className="relative h-[80%] w-[80%]">
+                                                        <Image
+                                                            src={card.image}
+                                                            alt={card.previewTitle}
+                                                            fill
+                                                            className="object-contain object-bottom right-0 opacity-90 transition-transform duration-700 group-hover:scale-105"
+                                                        />
+                                                    </div>
+                                                    <div className="absolute inset-0 bg-gradient-to-tr from-[var(--th-card)] via-[var(--th-card)]/80 to-transparent"></div>
+                                                </div>
+                                            )}
+
+                                            <div className="relative z-10 flex items-start justify-between">
+                                                <span
+                                                    className="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium backdrop-blur-md"
+                                                    style={{ background: "var(--th-bg-alt)", border: "1px solid var(--th-border)", color: "var(--th-text-muted)" }}
+                                                >
+                                                    {card.category}
+                                                </span>
+                                                <div className={`flex h-12 w-12 items-center justify-center rounded-xl backdrop-blur-md shadow-sm`} style={{ background: "var(--th-bg-alt)", color: "var(--th-text-muted)" }}>
+                                                    {ICON_MAP[card.icon as keyof typeof ICON_MAP]}
+                                                </div>
+                                            </div>
+
+                                            <div className="relative z-10 mt-6">
+                                                <p className="mb-1 text-sm font-medium uppercase tracking-wider text-secondary">
+                                                    {card.previewSubtitle}
+                                                </p>
+                                                <h3 className="mb-2 text-4xl font-extrabold tracking-tight sm:text-5xl drop-shadow-sm" style={{ color: "var(--th-text)" }}>
+                                                    {card.previewNumber}
+                                                </h3>
+                                                <p className="text-lg font-medium drop-shadow-sm" style={{ color: "var(--th-text-secondary)" }}>
+                                                    {card.previewTitle}
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </div>
                         </motion.div>
-                    ))}
-                </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
-            </div>
-
-            {/* Modal Pop-up (Shadcn Dialog style) */}
+            {/* ── DETAIL MODAL (Pop-up inside Pop-up) ── */}
             <AnimatePresence>
                 {selectedCard && (
                     <>
@@ -411,6 +379,6 @@ export default function BoardOfMilestones() {
                     </>
                 )}
             </AnimatePresence>
-        </section>
+        </>
     );
 }

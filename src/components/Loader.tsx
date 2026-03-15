@@ -66,7 +66,7 @@ export default function Loader() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 1.4 }}
                 >
-                    2024 / 2025
+                    2025 / 2026
                 </motion.p>
             </motion.div>
         </motion.div>

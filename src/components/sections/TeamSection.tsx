@@ -23,16 +23,7 @@ function PhotoCarousel({ photos, name }: { photos: string[]; name: string }) {
     const [cur, setCur] = useState(0);
 
     if (!photos || photos.length === 0) {
-        return (
-            <div
-                className="flex h-28 w-full items-center justify-center rounded-xl sm:h-32"
-                style={{ background: "var(--th-bg-alt)", border: "1px dashed var(--th-border)" }}
-            >
-                <p className="text-[10px] italic" style={{ color: "var(--th-text-faint)" }}>
-                    No gallery photos yet
-                </p>
-            </div>
-        );
+        return null;
     }
 
     return (
@@ -83,14 +74,14 @@ function PersonRow({
                 {photo ? (
                     <Image src={photo} alt={name} width={36} height={36} className="h-full w-full object-cover" />
                 ) : (
-                    <span className="text-xs font-bold" style={{ color }}>{name.charAt(0)}</span>
+                    <span className="text-xs font-bold" style={{ color: "var(--th-text)" }}>{name.charAt(0)}</span>
                 )}
             </div>
             <div className="min-w-0 flex-1">
-                <p className="truncate text-xs font-medium sm:text-sm" style={{ color: "var(--th-text-secondary)" }}>
+                <p className="truncate text-xs font-medium sm:text-sm" style={{ color: "var(--th-text)" }}>
                     {name}
                 </p>
-                <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: `${color}CC` }}>
+                <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "var(--th-text-muted)" }}>
                     {role}
                 </p>
             </div>
@@ -163,26 +154,24 @@ export default function TeamSection() {
                     >
                         {/* Compact BPH Card — styled like a department card */}
                         <div
-                            className={`glass-card glass-card-hover mx-auto max-w-sm cursor-pointer overflow-hidden rounded-2xl border-2 p-4 text-left transition-all sm:p-5`}
-                            style={{ borderColor: `${bphColor}30` }}
+                            className={`glass-card glass-card-hover mx-auto max-w-sm cursor-pointer overflow-hidden rounded-2xl border-2 p-4 text-left transition-all sm:p-5 dept-unified-card`}
                             onClick={() => setSelected(bph || null)}
                         >
-                            <div className={`absolute inset-0 bg-gradient-to-br from-[${bphColor}]/10 to-[${bphColor}]/2`} />
                             <div className="relative z-10">
                                 {/* Top: Logo + Name + Count */}
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2">
                                         {bph?.logo && (
-                                            <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg" style={{ background: `${bphColor}18`, border: `1px solid ${bphColor}30` }}>
+                                            <div className="dept-logo-container flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg" style={{ "--logo-bg-dark": `${bphColor}18`, "--logo-border-dark": `${bphColor}30` } as React.CSSProperties}>
                                                 <Image src={bph.logo} alt="BPH" width={24} height={24} className="h-6 w-6 object-contain" />
                                             </div>
                                         )}
                                         {!bph?.logo && (
-                                            <div className="flex h-9 w-9 items-center justify-center rounded-lg" style={{ background: `${bphColor}18`, border: `1px solid ${bphColor}30` }}>
-                                                <Crown size={18} style={{ color: bphColor }} />
+                                            <div className="dept-logo-container flex h-9 w-9 items-center justify-center rounded-lg" style={{ "--logo-bg-dark": `${bphColor}18`, "--logo-border-dark": `${bphColor}30` } as React.CSSProperties}>
+                                                <Crown size={18} style={{ color: "var(--th-text)" }} />
                                             </div>
                                         )}
-                                        <span className="text-sm font-bold tracking-wider uppercase" style={{ color: bphColor }}>
+                                        <span className="text-sm font-bold tracking-wider uppercase" style={{ color: "var(--th-text)" }}>
                                             BPH
                                         </span>
                                     </div>
@@ -259,32 +248,31 @@ export default function TeamSection() {
                                 };
 
                                 return (
-                                    <motion.button
+                                    <motion.div
                                         key={dept.id}
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.4, delay: i * 0.06 }}
                                         viewport={{ once: true }}
-                                        className={`glass-card glass-card-hover relative cursor-pointer overflow-hidden border-2 ${deptColor.border} p-4 text-left sm:p-5`}
+                                        className={`glass-card glass-card-hover relative cursor-pointer overflow-hidden border-2 p-4 text-left sm:p-5 dept-unified-card`}
                                         onClick={() => setSelected(dept)}
                                         whileTap={{ scale: 0.98 }}
                                     >
-                                        <div className={`absolute inset-0 bg-gradient-to-br ${deptColor.bg}`} />
                                         <div className="relative z-10">
                                             {/* Top: Name + Member Count */}
                                             <div className="flex items-center justify-between">
                                                 <div className="flex items-center gap-2">
                                                     {dept.logo && (
                                                         <div
-                                                            className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg"
-                                                            style={{ background: `${deptColor.color}18`, border: `1px solid ${deptColor.color}30` }}
+                                                            className="dept-logo-container flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg"
+                                                            style={{ "--logo-bg-dark": `${deptColor.color}18`, "--logo-border-dark": `${deptColor.color}30` } as React.CSSProperties}
                                                         >
                                                             <Image src={dept.logo} alt={dept.name} width={24} height={24} className="h-6 w-6 object-contain" />
                                                         </div>
                                                     )}
                                                     <span
                                                         className="text-sm font-bold tracking-wider uppercase"
-                                                        style={{ color: deptColor.color }}
+                                                        style={{ color: "var(--th-text)" }}
                                                     >
                                                         {dept.id.toUpperCase()}
                                                     </span>
@@ -339,7 +327,7 @@ export default function TeamSection() {
                                                 <span className="text-base" style={{ color: `${deptColor.color}60` }}>→</span>
                                             </div>
                                         </div>
-                                    </motion.button>
+                                    </motion.div>
                                 );
                             })}
                         </div>

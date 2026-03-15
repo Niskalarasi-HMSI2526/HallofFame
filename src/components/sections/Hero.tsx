@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { SITE_DATA } from "@/constants/data";
+import VideoProfile from "@/components/sections/VideoProfile";
+import BoardOfMilestones from "@/components/sections/BoardOfMilestones";
 
 const FILOSOFI_COLORS = [
     { gradient: "from-secondary/20 to-secondary/5", text: "text-secondary", border: "border-secondary/20" },
@@ -20,7 +22,7 @@ export default function Hero() {
         <>
             <section
                 id="hero"
-                className="relative flex min-h-[85vh] flex-col justify-center overflow-hidden px-6 sm:px-8"
+                className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden px-6 pt-28 pb-16 sm:px-8 lg:pt-32 lg:pb-24"
             >
                 {/* Background effects */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(130,115,216,0.15)_0%,transparent_60%)]" />
@@ -100,60 +102,76 @@ export default function Hero() {
                         </motion.p>
                     </div>
 
-                    {/* ── RIGHT: Identity / Who We Are ── */}
-                    <motion.div
-                        className="flex flex-1 flex-col items-center lg:items-start"
-                        id="filosofi"
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 1.2 }}
-                    >
-                        <div className="glass-card glow-ring w-full max-w-md rounded-2xl p-5 sm:p-7">
-                            <p className="text-xs font-semibold tracking-[0.3em] text-secondary uppercase sm:text-sm">
-                                Identity
-                            </p>
-                            <h2
-                                className="mt-2 text-xl font-bold tracking-tight sm:text-2xl md:text-3xl"
-                                style={{ color: "var(--th-text)" }}
+                    {/* ── RIGHT: Bento Grid ── */}
+                    <div className="flex w-full flex-1 flex-col lg:items-start lg:w-1/2 mt-8 lg:mt-0">
+                        <div className="grid w-full grid-cols-1 sm:grid-cols-2 gap-4">
+                            {/* Identity Card (Top Left) */}
+                            <motion.div
+                                className="col-span-1 h-full"
+                                id="filosofi"
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 1.2 }}
                             >
-                                Who We Are
-                            </h2>
-                            <p
-                                className="mt-2 text-xs leading-relaxed sm:text-sm"
-                                style={{ color: "var(--th-text-secondary)" }}
-                            >
-                                The <strong>Information Systems Student Association</strong> (HMSI) is the official student
-                                organization of the Department of Information Systems at <strong>Institut Teknologi
-                                    Sepuluh Nopember (ITS)</strong>, Surabaya. HMSI serves as a platform for students to grow
-                                academically, professionally, and socially.
-                            </p>
-                            <div className="mt-3 flex flex-wrap gap-2">
-                                {["Dept. of Information Systems", "ITS Surabaya", "156 Active Members"].map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="rounded-full px-2.5 py-0.5 text-[10px] font-bold tracking-wider uppercase sm:text-xs"
-                                        style={{ background: "var(--th-card-hover)", color: "var(--th-text-muted)", border: "1px solid var(--th-border)" }}
+                                <div className="glass-card flex flex-col justify-between w-full h-full rounded-2xl p-5 sm:p-6">
+                                    <div>
+                                        <p className="text-[10px] font-semibold tracking-[0.3em] text-secondary uppercase sm:text-xs">
+                                            Identity
+                                        </p>
+                                        <h2
+                                            className="mt-1 text-lg font-bold tracking-tight sm:text-xl"
+                                            style={{ color: "var(--th-text)" }}
+                                        >
+                                            Who We Are
+                                        </h2>
+                                        <p
+                                            className="mt-2 text-[10px] leading-relaxed sm:text-xs"
+                                            style={{ color: "var(--th-text-secondary)" }}
+                                        >
+                                            The <strong>Information Systems Student Association</strong> (HMSI) is the official student
+                                            organization of the Department of Information Systems at <strong>Institut Teknologi
+                                                Sepuluh Nopember (ITS)</strong>, Surabaya.
+                                        </p>
+                                        <div className="mt-3 flex flex-wrap gap-1.5">
+                                            {["Dept. of Information Systems", "ITS Surabaya", "156 Active Members"].map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="rounded-full px-2 py-0.5 text-[8px] font-bold tracking-wider uppercase sm:text-[10px]"
+                                                    style={{ background: "var(--th-card-hover)", color: "var(--th-text-muted)", border: "1px solid var(--th-border)" }}
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Open modal button */}
+                                    <button
+                                        onClick={() => setModalOpen(true)}
+                                        className="group mt-4 flex items-center justify-center gap-2 rounded-full w-full py-2 text-[10px] font-semibold tracking-wide transition-all duration-300 hover:scale-[1.02] sm:text-xs"
+                                        style={{
+                                            background: "var(--th-bg-alt)",
+                                            border: "1px solid var(--th-border)",
+                                            color: "var(--th-text-secondary)",
+                                        }}
                                     >
-                                        {tag}
-                                    </span>
-                                ))}
+                                        Discover Our Philosophy
+                                        <ChevronRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                                    </button>
+                                </div>
+                            </motion.div>
+
+                            {/* Video Profile Card (Top Right) */}
+                            <div className="col-span-1 h-full">
+                                <VideoProfile />
                             </div>
 
-                            {/* Open modal button */}
-                            <button
-                                onClick={() => setModalOpen(true)}
-                                className="group mt-4 flex items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold tracking-wide transition-all duration-300 hover:scale-105 sm:text-sm"
-                                style={{
-                                    background: "var(--th-bg-alt)",
-                                    border: "1px solid var(--th-border)",
-                                    color: "var(--th-text-secondary)",
-                                }}
-                            >
-                                Discover Our Philosophy
-                                <ChevronRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                            </button>
+                            {/* Board of Milestones Card (Bottom, Full Width) */}
+                            <div className="col-span-1 sm:col-span-2">
+                                <BoardOfMilestones />
+                            </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 

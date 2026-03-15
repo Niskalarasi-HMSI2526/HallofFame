@@ -51,6 +51,49 @@
   --th-overlay: rgba(0, 0, 0, 0.6);
 }
 
+/* ===== Department Logo Container for Theme Contrast ===== */
+.dept-logo-container {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .dept-logo-container {
+  background: var(--logo-bg-dark);
+  border: 1px solid var(--logo-border-dark);
+}
+
+/* ===== Unified Department Card Styles ===== */
+:root,
+[data-theme="light"] {
+  --unified-card-bg: rgba(21, 25, 130, 0.4);
+  --unified-card-border: rgba(21, 25, 130, 0.2);
+  
+  --unified-text: #ffffff;
+  --unified-text-secondary: rgba(255, 255, 255, 0.9);
+  --unified-text-muted: rgba(255, 255, 255, 0.7);
+  --unified-text-faint: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] {
+  --unified-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+  --unified-card-border: rgba(255, 255, 255, 0.15);
+  
+  --unified-text: #f0eef8;
+  --unified-text-secondary: #c8c4d8;
+  --unified-text-muted: #918da6;
+  --unified-text-faint: #5e5a72;
+}
+
+.dept-unified-card {
+  background: var(--unified-card-bg) !important;
+  border-color: var(--unified-card-border) !important;
+  
+  --th-text: var(--unified-text);
+  --th-text-secondary: var(--unified-text-secondary);
+  --th-text-muted: var(--unified-text-muted);
+  --th-text-faint: var(--unified-text-faint);
+}
+
 /* ===== Utility classes for theme colors ===== */
 .bg-th-bg {
   background: var(--th-bg);
@@ -110,6 +153,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -117,6 +162,7 @@ body {
   color: var(--th-text);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
+  max-width: 100%;
   transition: background 0.4s ease, color 0.4s ease;
 }
 

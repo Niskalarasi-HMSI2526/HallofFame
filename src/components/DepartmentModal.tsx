@@ -3,12 +3,29 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Trophy, Target, Briefcase, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { Trophy, Target, Briefcase, Award, ChevronLeft, ChevronRight, Maximize2, X, Video } from "lucide-react";
 import { ROLE_ORDER, ROLE_COLORS, type Department, type Member } from "@/constants/data";
 
 function getRoleBadge(role: string) {
     const colors = ROLE_COLORS[role] || "bg-slate-100 text-slate-600 border-slate-200";
     return `inline-block rounded-full border px-3 py-1 text-xs font-semibold tracking-wider uppercase ${colors}`;
+}
+
+function getYoutubeEmbedUrl(url: string) {
+    if (!url) return "";
+    try {
+        if (url.includes("youtu.be/")) {
+            const videoId = url.split("youtu.be/")[1].split("?")[0];
+            return `https://www.youtube.com/embed/${videoId}`;
+        } else if (url.includes("youtube.com/watch")) {
+            const urlObj = new URL(url);
+            const videoId = urlObj.searchParams.get("v");
+            return `https://www.youtube.com/embed/${videoId}`;
+        }
+    } catch (e) {
+        return url;
+    }
+    return url;
 }
 
 function groupMembersByRole(members: Member[]) {
@@ -31,6 +48,7 @@ export default function DepartmentModal({
 }) {
     const [currentImage, setCurrentImage] = useState(0);
     const [selectedMember, setSelectedMember] = useState<Member | null>(null);
+    const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
     // Reset carousel index when department changes
     useEffect(() => {
@@ -47,6 +65,7 @@ export default function DepartmentModal({
     }, [department, currentImage]);
 
     return (
+        <>
         <AnimatePresence>
             {department && (
                 <motion.div
@@ -106,7 +125,8 @@ export default function DepartmentModal({
                                             animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0 }}
                                             transition={{ duration: 0.4 }}
-                                            className="absolute inset-0"
+                                            className="absolute inset-0 cursor-pointer"
+                                            onClick={() => setLightboxIndex(currentImage)}
                                         >
                                             <Image
                                                 src={department.gallery[currentImage]}
@@ -115,6 +135,10 @@ export default function DepartmentModal({
                                                 className="object-cover"
                                                 priority
                                             />
+                                            {/* Fullscreen hint */}
+                                            <div className="absolute top-2 right-2 rounded-full bg-black/40 p-1.5 text-white/80 backdrop-blur-sm transition-opacity sm:top-3 sm:right-3">
+                                                <Maximize2 size={14} />
+                                            </div>
                                         </motion.div>
                                     </AnimatePresence>
 
@@ -150,6 +174,30 @@ export default function DepartmentModal({
                                             </div>
                                         </>
                                     )}
+                                </div>
+                            )}
+
+                            {/* ── YouTube Preview ── */}
+                            {department.youtubeLink && (
+                                <div className="rounded-xl overflow-hidden" style={{ background: "var(--th-bg-alt)", border: "1px solid var(--th-border)" }}>
+                                    <div className="p-4 border-b border-white/5" style={{ borderColor: "var(--th-border)" }}>
+                                        <div className="flex items-center gap-2">
+                                            <Video size={16} className="text-secondary" />
+                                            <h4 className="text-sm font-bold tracking-wider uppercase" style={{ color: "var(--th-text-muted)" }}>
+                                                Department Profile Video
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div className="relative w-full aspect-video bg-black/5">
+                                        <iframe
+                                            src={getYoutubeEmbedUrl(department.youtubeLink)}
+                                            title={`${department.name} Profile Video`}
+                                            className="absolute top-0 left-0 w-full h-full"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
                                 </div>
                             )}
 
@@ -331,5 +379,105 @@ export default function DepartmentModal({
                 </motion.div>
             )}
         </AnimatePresence>
+
+            {/* ── Lightbox Fullscreen Overlay ── */}
+            <AnimatePresence>
+                {lightboxIndex !== null && department?.gallery && department.gallery.length > 0 && (
+                    <motion.div
+                        className="fixed inset-0 z-[120] flex items-center justify-center bg-black/90 backdrop-blur-md"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setLightboxIndex(null)}
+                    >
+                        {/* Close button */}
+                        <button
+                            onClick={() => setLightboxIndex(null)}
+                            className="absolute top-4 right-4 z-10 rounded-full bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 sm:top-6 sm:right-6"
+                            aria-label="Close lightbox"
+                        >
+                            <X size={24} />
+                        </button>
+
+                        {/* Image counter */}
+                        <div className="absolute top-4 left-4 z-10 rounded-full bg-black/50 px-3 py-1.5 text-xs font-medium text-white/80 backdrop-blur-sm sm:top-6 sm:left-6 sm:text-sm">
+                            {lightboxIndex + 1} / {department!.gallery!.length}
+                        </div>
+
+                        {/* Navigation Left */}
+                        {department!.gallery!.length > 1 && (
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setLightboxIndex((prev) =>
+                                        prev === null ? 0 : prev === 0 ? department!.gallery!.length - 1 : prev - 1
+                                    );
+                                }}
+                                className="absolute left-2 z-10 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 sm:left-6"
+                                aria-label="Previous image"
+                            >
+                                <ChevronLeft size={28} />
+                            </button>
+                        )}
+
+                        {/* Navigation Right */}
+                        {department!.gallery!.length > 1 && (
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setLightboxIndex((prev) =>
+                                        prev === null ? 0 : (prev + 1) % department!.gallery!.length
+                                    );
+                                }}
+                                className="absolute right-2 z-10 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 sm:right-6"
+                                aria-label="Next image"
+                            >
+                                <ChevronRight size={28} />
+                            </button>
+                        )}
+
+                        {/* Full image */}
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={lightboxIndex}
+                                className="relative max-h-[85vh] max-w-[90vw]"
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.95 }}
+                                transition={{ duration: 0.3 }}
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <Image
+                                    src={department!.gallery![lightboxIndex]}
+                                    alt={`${department!.name} Gallery ${lightboxIndex + 1}`}
+                                    width={1200}
+                                    height={800}
+                                    className="max-h-[85vh] w-auto rounded-lg object-contain"
+                                    priority
+                                />
+                            </motion.div>
+                        </AnimatePresence>
+
+                        {/* Dot indicators */}
+                        {department!.gallery!.length > 1 && (
+                            <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 sm:bottom-6">
+                                {department!.gallery!.map((_, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setLightboxIndex(idx);
+                                        }}
+                                        className={`h-2 rounded-full transition-all ${lightboxIndex === idx ? "w-6 bg-white" : "w-2 bg-white/40 hover:bg-white/70"
+                                            }`}
+                                        aria-label={`Go to image ${idx + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
     );
 }

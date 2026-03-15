@@ -7,8 +7,6 @@ import Navbar from "@/components/Navbar";
 import ThemeToggle from "@/components/ThemeToggle";
 import StarField from "@/components/StarField";
 import Hero from "@/components/sections/Hero";
-import VideoProfile from "@/components/sections/VideoProfile";
-import BoardOfMilestones from "@/components/sections/BoardOfMilestones";
 import TeamSection from "@/components/sections/TeamSection";
 import HallOfFame from "@/components/sections/HallOfFame";
 import Footer from "@/components/Footer";
@@ -34,12 +32,6 @@ export default function Home() {
       <main>
         {/* 1. The Hook */}
         <Hero />
-
-        {/* 2. The Journey */}
-        <VideoProfile />
-
-        {/* 3. The Proof (Board of Milestones Bento Grid) */}
-        <BoardOfMilestones />
 
         {/* 5. The Team (BPH + Departments) */}
         <TeamSection />
