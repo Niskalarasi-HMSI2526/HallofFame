@@ -66,7 +66,9 @@ export default function Departments() {
     return (
         <>
             <section id="departments" className="section-padding relative">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(130,115,216,0.06)_0%,transparent_60%)]" />
+                <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)' }}>
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(130,115,216,0.06)_0%,transparent_60%)]" />
+                </div>
 
                 <div className="relative z-10 mx-auto max-w-7xl">
                     <motion.div

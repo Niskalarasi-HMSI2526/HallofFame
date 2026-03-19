@@ -14,7 +14,9 @@ const CATEGORY_STYLES: Record<string, { Icon: LucideIcon; accent: string; color:
 export default function Achievements() {
     return (
         <section id="achievements" className="section-padding relative">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(213,172,60,0.05)_0%,transparent_60%)]" />
+            <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)' }}>
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(213,172,60,0.05)_0%,transparent_60%)]" />
+            </div>
 
             <div className="relative z-10 mx-auto max-w-6xl">
                 <motion.div

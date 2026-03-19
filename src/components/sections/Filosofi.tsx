@@ -102,7 +102,7 @@ export default function Filosofi() {
                                         a strong sense of community.
                                     </p>
                                     <div className="mx-auto mt-5 flex flex-wrap items-center justify-center gap-3">
-                                        {["Dept. of Information Systems", "ITS Surabaya", "156 Active Members"].map((tag) => (
+                                        {["Dept. of Information Systems", "ITS Surabaya", "156 Members"].map((tag) => (
                                             <span
                                                 key={tag}
                                                 className="rounded-full px-3 py-1 text-[10px] font-bold tracking-wider uppercase sm:text-xs"

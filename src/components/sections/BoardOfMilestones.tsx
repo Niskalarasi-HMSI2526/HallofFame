@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, TrendingUp, Users, Target, Briefcase, Zap, Globe, ShieldCheck, ChevronRight } from "lucide-react";
@@ -80,6 +80,17 @@ export default function BoardOfMilestones() {
     const [selectedCard, setSelectedCard] = useState<typeof PORTFOLIO_DATA.bento_cards[0] | null>(null);
     const [mainModalOpen, setMainModalOpen] = useState(false);
 
+    useEffect(() => {
+        if (mainModalOpen || selectedCard) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [mainModalOpen, selectedCard]);
+
     return (
         <>
             {/* ── PREVIEW CARD ── */}
@@ -154,11 +165,11 @@ export default function BoardOfMilestones() {
                             exit={{ opacity: 0, y: 20, scale: 0.95, transition: { duration: 0.3 } }}
                         >
                             {/* Header sticky */}
-                            <div className="sticky top-0 z-20 px-5 py-5 backdrop-blur-xl sm:px-8 border-b" style={{ borderColor: "var(--th-border)", background: "var(--th-bg-alt)/95" }}>
-                                <div className="flex items-start justify-between">
-                                    <div className="pr-4">
+                            <div className="sticky top-0 z-20 px-5 py-5 backdrop-blur-xl sm:px-8 border-b" style={{ borderColor: "var(--th-border)", background: "var(--th-card)" }}>
+                                <div className="flex items-start justify-between gap-4">
+                                    <div className="pr-2">
                                         <p className="text-xs font-bold tracking-[0.2em] text-secondary uppercase sm:text-sm">Performance & Achievements</p>
-                                        <h3 className="mt-1 text-2xl font-bold sm:text-3xl" style={{ color: "var(--th-text)" }}>
+                                        <h3 className="mt-1 text-xl font-bold break-words sm:text-3xl" style={{ color: "var(--th-text)" }}>
                                             {PORTFOLIO_DATA.header.title}
                                         </h3>
                                     </div>
@@ -305,9 +316,9 @@ export default function BoardOfMilestones() {
                                 style={{ background: "var(--th-card)", border: "1px solid var(--th-border)" }}
                             >
                                 {/* Modal Header */}
-                                <div className="flex items-center justify-between border-b px-6 py-4 sticky top-0 z-20 backdrop-blur-md" style={{ borderColor: "var(--th-border)", background: "var(--th-card)" }}>
+                                <div className="flex items-center justify-between border-b px-6 py-4 sticky top-0 z-20 backdrop-blur-md gap-4" style={{ borderColor: "var(--th-border)", background: "var(--th-card)" }}>
                                     <span
-                                        className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider"
+                                        className="inline-flex items-center rounded-full px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-wider max-w-[80%]"
                                         style={{ background: "var(--th-bg-alt)", color: "var(--th-text-muted)" }}
                                     >
                                         {selectedCard.category}
@@ -339,10 +350,10 @@ export default function BoardOfMilestones() {
                                     )}
 
                                     <div className="px-6 py-8 sm:px-8 sm:py-10">
-                                        <h3 className="mb-2 text-5xl font-extrabold tracking-tight sm:text-6xl" style={{ color: "var(--th-text)" }}>
+                                        <h3 className="mb-2 text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight" style={{ color: "var(--th-text)" }}>
                                             {selectedCard.previewNumber}
                                         </h3>
-                                        <p className="mb-8 text-xl font-medium" style={{ color: "var(--th-text-secondary)" }}>
+                                        <p className="mb-6 sm:mb-8 text-sm sm:text-lg md:text-xl font-medium" style={{ color: "var(--th-text-secondary)" }}>
                                             {selectedCard.previewTitle}
                                         </p>
 

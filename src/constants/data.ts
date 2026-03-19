@@ -229,10 +229,10 @@ export const SITE_DATA = {
     },
     {
       id: "ia",
-      name: "Internal Affair",
+      name: "Internal Affairs",
       performance: 100,
       logo: "/logos/ia.png",
-      gallery: ["/photos/ia/IA 0.png", "/photos/ia/IA 1.png", "/photos/ia/IA 2.png", "/photos/ia/IA 3.png", "/photos/ia/IA 4.png", "/photos/ia/IA 5.png", "/photos/ia/IA 6.JPG", "/photos/ia/IA 7.JPG", "/photos/ia/IA 8.png"],
+      gallery: ["/photos/ia/IA 0.png", "/photos/ia/IA 1.png", "/photos/ia/IA 2.png", "/photos/ia/IA 3.png", "/photos/ia/IA 4.png", "/photos/ia/IA 5.png", "/photos/ia/IA 6.png", "/photos/ia/IA 7.jpg", "/photos/ia/IA 8.jpg"],
       roleFunction: "The Vibe Keeper. IA ensures a balanced, dynamic, and closely-knit campus life by nurturing student interests and celebrating internal organizational milestones.",
       agendas: ["Graduations & Yudisium Celebrations", "HMSI Dies Natalis", "COMMEX", "TGIF", "Student Communities (E-Sports, Sports, Music)"],
       goals: "Maintain high retention, mitigate student burnout, and foster a strong sense of belonging. Members refine their skills in mega-event organizing, community building, talent curation, and dynamic internal communication.",
@@ -264,7 +264,7 @@ export const SITE_DATA = {
       name: "Student Welfare",
       performance: 86.34,
       logo: "/logos/swf.png",
-      gallery: ["/photos/swf/SWF 0.png", "/photos/swf/SWF 1.png", "/photos/swf/SWF 2.png", "/photos/swf/SWF 3.png", "/photos/swf/SWF 4.png", "/photos/swf/SWF 5.png", "/photos/swf/SWF 6.JPG", "/photos/swf/SWF 7.JPG"],
+      gallery: ["/photos/swf/SWF 0.png", "/photos/swf/SWF 1.png", "/photos/swf/SWF 2.png", "/photos/swf/SWF 3.png", "/photos/swf/SWF 4.png", "/photos/swf/SWF 5.png", "/photos/swf/SWF 6.jpg", "/photos/swf/SWF 7.jpg"],
       youtubeLink: "https://youtu.be/q81j_xbHjKw?si=pTpj3SlGMnSLN1f7",
       roleFunction: "The Ultimate Support System. SWF is the frontline advocacy body dedicated to safeguarding students' academic, financial, and physical well-being.",
       agendas: ["Healthcare Seminars (GOSIP)", "Academic Tutoring (SWF Tutorial)", "Tuition Fee (UKT) Appeal Assistance", "Scholarship Mapping", "SWF Fund"],
@@ -295,7 +295,7 @@ export const SITE_DATA = {
       name: "Research and Development",
       performance: 100,
       logo: "/logos/rnd.png",
-      gallery: ["/photos/rnd/RND 0.png", "/photos/rnd/RnD 1.png", "/photos/rnd/RnD 2.png", "/photos/rnd/RnD 3.png", "/photos/rnd/RnD 4.png", "/photos/rnd/RND 5.png", "/photos/rnd/RND 6.JPG", "/photos/rnd/RND 7.JPG"],
+      gallery: ["/photos/rnd/RND 0.png", "/photos/rnd/RnD 1.png", "/photos/rnd/RnD 2.png", "/photos/rnd/RnD 3.png", "/photos/rnd/RnD 4.png", "/photos/rnd/RND 5.png", "/photos/rnd/RND 6.jpg", "/photos/rnd/RND 7.jpg"],
       youtubeLink: "https://youtu.be/EZTEEWN54Ug?si=vrKq-o3MUD5Crryz",
       roleFunction: "The Think Tank. RnD is the incubator for academic excellence, technological innovation, and competitive achievement within the Information Systems department.",
       agendas: ["Scientific Writing Training (PKTI)", "IS Competitions", "Competency & Innovation Center (CIC)", "National Research Team Mentoring"],
@@ -327,7 +327,7 @@ export const SITE_DATA = {
       name: "Information Media",
       performance: 95.90,
       logo: "/logos/im.png",
-      gallery: ["/photos/im/IM 0.png", "/photos/im/IM 1.png", "/photos/im/IM 2.png", "/photos/im/IM 3.png", "/photos/im/IM 4.png", "/photos/im/IM 5.png", "/photos/im/IM 6.png", "/photos/im/IM 7.JPG", "/photos/im/IM 8.JPG"],
+      gallery: ["/photos/im/IM 0.png", "/photos/im/IM 1.png", "/photos/im/IM 2.png", "/photos/im/IM 3.png", "/photos/im/IM 4.png", "/photos/im/IM 5.png", "/photos/im/IM 6.png", "/photos/im/IM 7.jpg", "/photos/im/IM 8.jpg"],
       roleFunction: "The Creative Agency. IM acts as the visual and digital communication mastermind behind HMSI's public image, responsible for social media management, creative branding, and digital journalism.",
       agendas: ["GengSI Magazine", "Basic Media Schooling (BMS)", "OBSESI Podcast", "LayarHMSI", "Live Reporting", "Design Tutorials"],
       goals: "Deliver impactful visual storytelling and elevate the organization's digital presence. Members master digital marketing, graphic design, copywriting, and public relations, translating complex information into engaging content.",
@@ -367,30 +367,30 @@ export const SITE_DATA = {
       name: "External Affair",
       performance: 98.97,
       logo: "/logos/ea.png",
-      gallery: ["/photos/ea/EA 0.png", "/photos/ea/EA 1.png", "/photos/ea/EA 2.png", "/photos/ea/EA 3.png", "/photos/ea/EA 4.png", "/photos/ea/EA 5.JPG"],
+      gallery: ["/photos/ea/EA 0.png", "/photos/ea/EA 1.png", "/photos/ea/EA 2.png", "/photos/ea/EA 3.png", "/photos/ea/EA 4.png", "/photos/ea/EA 5.jpg"],
       roleFunction: "The Diplomat. EA is the frontline of HMSI's diplomacy, establishing cross-institutional relationships, maintaining alumni networks, and preparing students for global opportunities.",
       agendas: ["Ormawa Visits", "Abroad Preparation Program (APP)", "Alumni Career Talks", "English Clinics", "HMSI Connect"],
       goals: "Build a robust professional network and bridge the gap between students, alumni, and the industrial world. Members hone their skills in stakeholder management, B2B negotiation, professional communication, and strategic partnership building.",
       achievementHighlight: "Successfully executed cross-disciplinary Ormawa Visits (HIMASTA UNAIR & HMTG ITS), revitalized the 2025-2030 IKASI alumni synergy, and partnered with Telkomsel Surabaya for an industrial visit.",
       youtubeLink: "https://youtu.be/4VQBCaywbIs?si=GwlfGncSXU8xZyL9",
       members: [
-        { name: "Arjuna Putra Kharisma", nrp: "5026221210", role: "Head of Department", photo: "/photos/ea/5026221210.jpg" },
+        { name: "Arjuna Putra Kharisma", nrp: "5026221210", role: "Head of Department", photo: "/photos/ea/Arjuna Putra.JPG" },
         { name: "Karina Filza Aafiyah", nrp: "5026221012", role: "Deputy Head of Department", photo: "/photos/ea/Karina.JPG" },
-        { name: "Annisa Fadila Rahmawati", nrp: "5026221069", role: "Deputy Head of Department", photo: "/photos/ea/5026221069.jpg" },
-        { name: "Nisrina Kamiliya Riswanto", nrp: "5026231111", role: "Department Secretary", photo: "/photos/ea/5026231111.jpg" },
-        { name: "Natasha Yosefani Putri", role: "Expert Staff" },
-        { name: "Muhammad Fauzan", role: "Expert Staff" },
-        { name: "Agung Budi Prasetya", role: "Expert Staff" },
-        { name: "Arayzi Rayyansyah", role: "Expert Staff" },
-        { name: "Devika Rahman", role: "Staff" },
-        { name: "Muhammad Dzaki Adfiz", role: "Staff" },
-        { name: "Rahmadhona Elokpribadi Kusmawan", role: "Staff" },
-        { name: "Muhammad Daniel Alfarisi", role: "Staff" },
-        { name: "Irhab Faiz Hidayat", role: "Staff" },
-        { name: "Auliya Malika Idi", role: "Staff" },
-        { name: "Mochammad Zhulmi D. H.", role: "Staff" },
-        { name: "Fadhiil Akmal Hamizan", role: "Staff" },
-        { name: "Burhan Shidqi Arrasyid", role: "Staff" },
+        { name: "Annisa Fadila Rahmawati", nrp: "5026221069", role: "Deputy Head of Department", photo: "/photos/ea/Annisa.JPG" },
+        { name: "Nisrina Kamiliya Riswanto", nrp: "5026231111", role: "Department Secretary", photo: "/photos/ea/Nisrina Kamiliya Riswanto_Nisrina.JPG" },
+        { name: "Natasha Yosefani Putri", role: "Expert Staff", photo: "/photos/ea/Natasha Yosefani Putri_Tasha.JPG" },
+        { name: "Muhammad Fauzan", role: "Expert Staff", photo: "/photos/ea/Muhammad Fauzan_Fauzan-1.jpg" },
+        { name: "Agung Budi Prasetya", role: "Expert Staff", photo: "/photos/ea/Agung Budi Prasetya_Agung_EA.jpg" },
+        { name: "Arayzi Rayyansyah", role: "Expert Staff", photo: "/photos/ea/Aray_EA.JPG" },
+        { name: "Devika Rahman", role: "Staff", photo: "/photos/ea/Devika Rahman_Vika-1.jpg" },
+        { name: "Muhammad Dzaki Adfiz", role: "Staff", photo: "/photos/ea/Muhammad Dzaki Adfiz_Dzaki-1.jpg" },
+        { name: "Rahmadhona Elokpribadi Kusmawan", role: "Staff", photo: "/photos/ea/Rahmadhona.JPG" },
+        { name: "Muhammad Daniel Alfarisi", role: "Staff", photo: "/photos/ea/Muhammad Daniel Alfarisi_Daniel.jpg" },
+        { name: "Irhab Faiz Hidayat", role: "Staff", photo: "/photos/ea/Irhab Faiz Hidayat_Faiz-1.jpg" },
+        { name: "Auliya Malika Idi", role: "Staff", photo: "/photos/ea/Auliya Malika_Auliya_EA.jpg" },
+        { name: "Mochammad Zhulmi D. H.", role: "Staff", photo: "/photos/ea/Juno.JPG" },
+        { name: "Fadhiil Akmal Hamizan", role: "Staff", photo: "/photos/ea/Fadhiil Akmal Hamizan_Fadhiil.JPG" },
+        { name: "Burhan Shidqi Arrasyid", role: "Staff", photo: "/photos/ea/Burhan Shidqi Arrasyid_Burhan.jpg" },
       ],
     },
     {
@@ -398,7 +398,7 @@ export const SITE_DATA = {
       name: "Entrepreneurship",
       performance: 100,
       logo: "/logos/es.png",
-      gallery: ["/photos/es/ES 0.png", "/photos/es/ES 1.png", "/photos/es/ES 2.png", "/photos/es/ES 3.png", "/photos/es/ES 4.png", "/photos/es/ES 5.png", "/photos/es/ES 6.JPG"],
+      gallery: ["/photos/es/ES 0.png", "/photos/es/ES 1.png", "/photos/es/ES 2.png", "/photos/es/ES 3.png", "/photos/es/ES 4.png", "/photos/es/ES 5.png", "/photos/es/ES 6.jpg"],
       roleFunction: "The Business Hub. ES functions as the sociopreneurial incubator for students and the independent financial engine of the organization.",
       agendas: ["Entrepreneurship Workshops", "IS Store (Merchandise & F&B)", "Warunk ES (Student Marketplace)", "ES Spotlight"],
       goals: "Instill a robust entrepreneurial mindset. Members acquire practical, real-world skills in financial modeling, B2C sales, marketing strategy, supply chain basics, and sustainable business management.",
@@ -432,7 +432,7 @@ export const SITE_DATA = {
       name: "Social Development",
       performance: 99.78,
       logo: "/logos/socdev.png",
-      gallery: ["/photos/socdev/SOCDEV 0.png", "/photos/socdev/SOCDEV 1.png", "/photos/socdev/SOCDEV 2.png", "/photos/socdev/SOCDEV 3.png", "/photos/socdev/SOPCDEV 4.png", "/photos/socdev/SOCDEV 5.png", "/photos/socdev/SOCDEV 6.JPG", "/photos/socdev/SOCDEV 7.JPG"],
+      gallery: ["/photos/socdev/SOCDEV 0.png", "/photos/socdev/SOCDEV 1.png", "/photos/socdev/SOCDEV 2.png", "/photos/socdev/SOCDEV 3.png", "/photos/socdev/SOPCDEV 4.png", "/photos/socdev/SOCDEV 5.png", "/photos/socdev/SOCDEV 6.jpg", "/photos/socdev/SOCDEV 7.jpg"],
       roleFunction: "The Impact Maker. SocDev channels the technological expertise of Information Systems students into tangible community empowerment and philanthropic activities.",
       agendas: ["IT Teaching in Schools (SIMETRI)", "Direct Community Service (SINERGI)", "Social Campaigns (AKSI)", "SocioTrip", "Disaster Relief Fundraising (SocioBank)"],
       goals: "Cultivate social empathy and utilize technology for the greater good. Members develop expertise in community project management, CSR mapping, empathetic leadership, and sustainable program execution.",
@@ -582,3 +582,105 @@ export const PORTFOLIO_DATA = {
     }
   ]
 };
+
+export const GALLERY_ITEMS = [
+    {
+        title: "ORMAWA VISIT - UNAIR",
+        description: "ORMAWA VISIT is a flagship initiative by the External Affairs Department of the Information Systems Student Association (HMSI) ITS. It aims to build and strengthen collaborative networks and communication between student organizations. Functioning as a platform for knowledge exchange and experience sharing, this program is vital for supporting organizational goals through external synergy. This year, the program will be held offline, featuring a visit to the Statistics Student Association (HIMASTA) at Universitas Airlangga to foster deeper mutual cooperation.",
+        photos: [
+            "/photos/HOF/ORVIS HIMASTA 1.JPG",
+            "/photos/HOF/ORVIS HIMASTA 2.JPG"
+        ]
+    },
+    {
+        title: "AKSELERASI - Actualization of Skills and Information Systems Exploration",
+        description: "AKSELERASI is a foundational training program within the Manage 2025 series, designed to provide fundamental insights into managerial science and the Information Systems Department. Covering essential topics like leadership, time management, and organizational structure from expert speakers, participants are guided to grasp the essence of management holistically. The learning approach is highly practical, requiring participants to complete a Post-Training Activity (KPP) as an evaluation. This program is projected to optimally prepare participants for active contribution within the Information Systems Department.",
+        photos: [
+            "/photos/HOF/AKSELERASI 1.JPG",
+            "/photos/HOF/AKSELERASI 2.JPG",
+            "/photos/HOF/AKSELERASI 3.JPG"
+        ]
+    },
+    {
+        title: "BMS - Basic Media Schooling",
+        description: "BMS is a journalistic training program initiated by the Information Media Department of HMSI ITS to channel students' interests and talents in literacy and information processing. In an era of rapid technological advancement, BMS aims to develop competent individuals capable of effective information blasting while understanding the strategic role of journalism in publication, marketing, and branding. Through this training, students are equipped with professional reading, writing, and processing skills to optimize information flow within the department and contribute positively to society through journalism.",
+        photos: [
+            "/photos/HOF/BMS 1.png",
+            "/photos/HOF/BMS 2.png",
+            "/photos/HOF/BMS 3.png"
+        ]
+    },
+    {
+        title: "Career Talk",
+        description: "Career Talk, organized by the External Affairs Department of HMSI ITS, serves as an interactive bridge between students and alumni (IKASI) to provide realistic insights into the professional world. With the theme \"Exploring Outer Space,\" this program responds to the high demand for deep insights into diverse career paths in the dynamic digital era. Through sharing sessions and interactive discussions, Career Talk acts as a catalyst for students to understand challenges, opportunities, and effective career strategies, empowering them to pursue their professional goals with confidence.",
+        photos: [
+            "/photos/HOF/CAREER TALK 1.JPG",
+            "/photos/HOF/CAREER TALK 2.JPG"
+        ]
+    },
+    {
+        title: "Company Visit - Telkomsel Surabaya",
+        description: "The 2025 HMSI Company Visit is a strategic program designed to bridge the gap between academic theory and digital industry reality. Themed “Calibrating Knowledge, Accelerating Growth: A Future with Telkomsel,” this event invites students to Telkomsel Landmark Surabaya to witness the implementation of cutting-edge technologies like AI, Big Data, and IoT at scale. Beyond technical insights, participants will gain an understanding of professional work culture and project management. In line with the Niskalarasi cabinet spirit, this activity serves as an accelerator for students in planning realistic career paths toward Indonesia Emas 2045.",
+        photos: [
+            "/photos/HOF/COMPANY VISIT 1.JPG",
+            "/photos/HOF/COMPANY VISIT 2.JPG",
+            "/photos/HOF/COMPANY VISIT 3.JPG"
+        ]
+    },
+    {
+        title: "Healthcare",
+        description: "Health Care 2025, a project by the Student Welfare Department, is designed to raise awareness about the critical importance of oral and dental health as a foundation for quality of life. Recognizing the link between oral conditions and chronic diseases, this program aims to shift the perception that dental care is only necessary when pain occurs. It offers free dental check-ups and direct consultations with FKG Unair students, encouraging early detection and a more comprehensive healthy lifestyle as part of overall well-being.",
+        photos: [
+            "/photos/HOF/HEALTHCARE 1.JPG",
+            "/photos/HOF/HEALTHCARE 3.JPG",
+            "/photos/HOF/HEALTHCARE.JPG"
+        ]
+    },
+    {
+        title: "OKKBK",
+        description: "OKKBK (Curriculum-Based Professional and Competency Orientation) is an essential campus orientation program designed to facilitate the transition of new students from high school to university life. Managed by the HRD Department, it aims to accelerate the adaptation of 2025 Information Systems and Digital Innovation students to a complex academic environment. The program includes briefings on curriculum, academic management, and professional guest lectures, ensuring new students are mentally prepared and competent to contribute to the department and the nation.",
+        photos: [
+            "/photos/HOF/OKKBK.JPG"
+        ]
+    },
+    {
+        title: "ORMAWA Visit - HMTG",
+        description: "ORMAWA VISIT is an initiative by the External Affairs Department of HMSI ITS aimed at strengthening internal and external collaborative ties. It serves as a medium for exchanging information and experiences to tighten communication networks between student organizations. This year’s offline visit to the Geophysics Engineering Student Association (HMTG) ITS is a concrete step toward building synergy and expanding connections across various departments on campus.",
+        photos: [
+            "/photos/HOF/ORVIS HMTG 0.JPG",
+            "/photos/HOF/ORVIS HMTG 1.JPG",
+            "/photos/HOF/ORVIS HMTG 2.JPG"
+        ]
+    },
+    {
+        title: "PMO - Organizational Management Training",
+        description: "The 2025 HMSI Organizational Management Training (PMO) is a strategic program to mold functionaries into \"agents of change\" who balance technical proficiency with managerial soft skills. Under the philosophical theme “Path of Shinobi HMSI,” the program focuses on self-development, organizational values, and effective project management. Using an interactive approach—including cross-generational mentoring and simulations—PMO 2025 instills loyalty and determination (the \"ninja way\") in every functionary to ensure the organization's sustainability and progress.",
+        photos: [
+            "/photos/HOF/PMO 1.JPG",
+            "/photos/HOF/PMO 2.JPG",
+            "/photos/HOF/PMO 3.JPG",
+            "/photos/HOF/PMO 4.JPG"
+        ]
+    },
+    {
+        title: "Information Systems Graduation (Wisuda)",
+        description: "Graduation is a ceremonial agenda held to honor students' success in completing their studies and earning their academic degrees. More than just a ceremony, it is a tribute to parents and a moment to strengthen the bonds between faculty, staff, students, and alumni. The department aims to foster a sense of pride and lasting connection to the alma mater, while also motivating active students to persevere and complete their studies on time.",
+        photos: [
+            "/photos/HOF/WISUDA 1.jpg",
+            "/photos/HOF/WISUDA 2.JPG",
+            "/photos/HOF/WISUDA 3.JPG",
+            "/photos/HOF/WISUDA 4.JPG"
+        ]
+    },
+    {
+        title: "SOCIOTRIP",
+        description: "Socio Trip is an outreach program that encourages Information Systems students to engage in social activities beyond the campus, such as teaching and collaborating with external social communities. The goal is to enhance students' social sensitivity and provide real-world experience. Typically, Socio Trip involves learning and playing with children in orphanages or foster homes, as well as environmental conservation activities, allowing students to contribute directly to the community and nature.",
+        photos: [
+            "/photos/HOF/SOCIOTRIP 1.JPG",
+            "/photos/HOF/SOCIOTRIP 2.JPG",
+            "/photos/HOF/SOCIOTRIP 3.JPG",
+            "/photos/HOF/SOCIOTRIP 4.JPG",
+            "/photos/HOF/SOCIOTRIP 5.JPG"
+        ]
+    }
+];

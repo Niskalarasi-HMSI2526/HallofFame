@@ -25,19 +25,21 @@ export default function Hero() {
                 className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden px-6 pt-28 pb-16 sm:px-8 lg:pt-32 lg:pb-24"
             >
                 {/* Background effects */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(130,115,216,0.15)_0%,transparent_60%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(246,134,235,0.06)_0%,transparent_50%)]" />
-                <div
-                    className="absolute inset-0 opacity-[0.03]"
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(rgba(130,115,216,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(130,115,216,0.4) 1px, transparent 1px)",
-                        backgroundSize: "60px 60px",
-                    }}
-                />
+                <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)' }}>
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(130,115,216,0.15)_0%,transparent_60%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(246,134,235,0.06)_0%,transparent_50%)]" />
+                    <div
+                        className="absolute inset-0 opacity-[0.03]"
+                        style={{
+                            backgroundImage:
+                                "linear-gradient(rgba(130,115,216,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(130,115,216,0.4) 1px, transparent 1px)",
+                            backgroundSize: "60px 60px",
+                        }}
+                    />
+                </div>
 
                 {/* Main two-column layout */}
-                <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-12">
+                <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-12">
                     {/* ── LEFT: Logo + Cabinet Name ── */}
                     <div className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left">
                         <motion.div
@@ -133,7 +135,7 @@ export default function Hero() {
                                                 Sepuluh Nopember (ITS)</strong>, Surabaya.
                                         </p>
                                         <div className="mt-3 flex flex-wrap gap-1.5">
-                                            {["Dept. of Information Systems", "ITS Surabaya", "156 Active Members"].map((tag) => (
+                                            {["Dept. of Information Systems", "ITS Surabaya", "156 Members"].map((tag) => (
                                                 <span
                                                     key={tag}
                                                     className="rounded-full px-2 py-0.5 text-[8px] font-bold tracking-wider uppercase sm:text-[10px]"
@@ -238,8 +240,11 @@ export default function Hero() {
                                         academically, professionally, and socially — fostering leadership, innovation, and
                                         a strong sense of community.
                                     </p>
+                                    <p className="mx-auto mt-3 max-w-xl text-center text-sm leading-relaxed" style={{ color: "var(--th-text-secondary)" }}>
+                                        Tracing its roots back to June 2001 in room TC 103-104, HMSI was born during an era when Information Systems was still nestled within the Informatics Engineering department. This association was forged when IS students collectively chose to branch out from HMTC to define their own identity. This milestone didn't just create a new student body; it catalyzed the evolution of Information Systems into a fully independent department, elevating its status from a mere study program to a standalone academic entity.
+                                    </p>
                                     <div className="mx-auto mt-4 flex flex-wrap items-center justify-center gap-2">
-                                        {["Dept. of Information Systems", "ITS Surabaya", "156 Active Members", "Cabinet 2024/2025"].map((tag) => (
+                                        {["Dept. of Information Systems", "ITS Surabaya", "156 Members", `Cabinet ${SITE_DATA.cabinet.year}`].map((tag) => (
                                             <span
                                                 key={tag}
                                                 className="rounded-full px-3 py-1 text-[10px] font-bold tracking-wider uppercase sm:text-xs"

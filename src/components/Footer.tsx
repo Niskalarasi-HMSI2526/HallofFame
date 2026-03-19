@@ -87,7 +87,7 @@ export default function Footer() {
                     </p>
 
                     {/* Social Links */}
-                    <div className="mt-6 flex items-center gap-4">
+                    <div className="mt-6 flex flex-wrap items-center justify-center gap-4 px-4 sm:px-0">
                         {SOCIAL_LINKS.map((social) => {
                             const Icon = social.icon;
                             return (
@@ -141,8 +141,8 @@ export default function Footer() {
                     <div
                         className="mt-8 h-px w-20 bg-gradient-to-r from-transparent via-secondary/30 to-transparent"
                     />
-                    <p className="mt-4 text-xs" style={{ color: "var(--th-text-faint)" }}>
-                        &copy; {new Date().getFullYear()} Information Systems Student Association &mdash; Institut Teknologi Sepuluh Nopember (ITS)
+                    <p className="mt-4 px-4 text-xs leading-relaxed" style={{ color: "var(--th-text-faint)" }}>
+                        &copy; {new Date().getFullYear()} HMSI Niskalarasi &mdash; Information Systems Student Association, ITS. Developed by Fazle Sidiki.
                     </p>
                 </div>
             </div>
